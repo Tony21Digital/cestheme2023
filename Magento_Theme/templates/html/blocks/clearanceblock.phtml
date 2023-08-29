@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Clearance Block - to be displayed whereever required on the site 
+ * 
+ */
+$title = ($this->getData('title')) ?: 'Shop Our Clearance Sale';
+
+/* Show the "View All" button if set */
+$showbutton = (bool) $this->getData('showbutton');
+$showheader = (bool) $this->getData('showheader');
+/* get the categories if we're on a category page */
+$_catHelper = $block->getLayout()->createBlock("TwentyOneDigital\HelperModule\Block\CategoryHelper");
+$_currentCatId = ($_catHelper->getCategoryId()) ?: $this->getData('parentcatid');
+$_childCats = $_catHelper->getCategories($_currentCatId);
+$findOutMoreUrl = (string) ($this->getData('link')) ?: $_catHelper->getCategoryUrl($_currentCatId); 
+
+?>
+<section id="clearance-block">
+    <?php
+    if ($showheader) :
+    ?>
+        <header>
+            <h2><?= $title ?></h2>
+        </header>
+    <?php
+    endif;
+    ?>
+    <main class="gridcol-<?= sizeof($_childCats) ?>">
+        <?php
+        foreach ($_childCats as $_child) :
+            $_catImage = $_catHelper->getCategoryAttribute($_child['id'], 'image');
+            $_catUrl = $_catHelper->getCategoryUrl($_child['id']);
+            printf('<a href="%s"><img src="%s" alt="%s" loading="lazy"></a>', $_catUrl, $_catImage, $_child['name']);
+        endforeach;
+        ?>
+
+    </main>
+    <?php
+    if ($showbutton) :
+    ?>
+        <footer>
+            <div class="corner-btn--red"><a href="<?= $findOutMoreUrl ?>">
+                    <span></span>Shop Now</a></div>
+        </footer>
+    <?php
+    endif;
+    ?>
+
+
+</section>

@@ -1,0 +1,171 @@
+.key-messages {
+	display: block;
+	width: 100%;
+	padding: 15px 0;
+	background-color: @grey;
+	border-bottom: 1px solid @red;
+
+	@media @laptop {
+		background-color: @white;
+	}
+
+	.cms-home &,
+	.cms-wilcoflex & {
+		border-bottom: 0;
+		padding: 15px 0 18px 0;
+	}
+
+	ul {
+		display: flex!important;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	li {
+		display: flex!important;
+		align-items: center;
+		justify-content: center;
+		list-style-type: none;
+		width: 100%!important;
+		text-align: center;
+
+		@media @desktop {
+			width: auto!important;
+		}
+
+		&:before {
+			content: "";
+			display: inline-block;
+			position: relative;
+			width: 35px;
+			height: 30px;
+			top: 0;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100%;
+			margin-right: 5px;
+		}
+
+		&:nth-of-type(1) {
+			
+			&:before {
+				background-image: url('../images/icons/usp-icons-free-delivery.png');
+			}
+		}
+
+		&:nth-of-type(2) {
+			
+
+			&:before {
+				background-image: url('../images/icons/usp-icons-free-delivery.png');
+
+				@media @tablet {
+					background-image: url('../images/icons/usp-icons-next-day-delivery.png');
+				}
+			}
+		}
+
+		&:nth-of-type(3) {
+			
+			&:before {
+				background-image: url('../images/icons/usp-icons-next-day-delivery.png');
+
+				@media @tablet {
+					background-image: url('../images/icons/usp-icons-rated-excellent.png');
+				}
+			}
+		}
+
+		&:nth-of-type(4) {
+			
+
+			&:before {
+				background-image: url('../images/icons/usp-icons-rated-excellent.png');
+
+				@media @tablet {
+					background-image: url('../images/icons/usp-icons-certified.png');
+				}
+			}
+		}
+
+		&:nth-of-type(5) {
+			
+
+			&:before {
+				background-image: url('../images/icons/usp-icons-certified.png');
+			}
+		}
+	}
+
+	li {
+		font-family: @axiformabook;
+		text-transform: uppercase;
+		font-size: 12px;
+		line-height: 12px;
+
+		@media @desktop {
+			font-size: 14px;
+			line-height: 14px;
+		}
+	}
+
+	a {
+		color: @black;
+		font-family: @axiformabook;
+		text-transform: uppercase;
+		font-size: 12px;
+		line-height: 12px;
+	}
+
+	strong {
+		font-family: @axiformabold;
+	}
+
+	.slick-list {
+		width: 100%;
+	}
+
+	.slick-track {
+		display: flex!important;
+		justify-content: center;
+
+		@media @tablet {
+			justify-content: space-between;
+		}
+	}
+
+	.slick-next {
+    	right: -15px!important;
+
+    	&:before {
+			content: ''!important;
+			position: relative;
+	    	display: inline-block;
+	    	width: 20px;
+	    	height: 20px;
+			background-image: url('../images/icons/red-arrow-next.svg');
+			background-repeat: no-repeat;
+			background-size: 7px;
+			background-position: center;
+			opacity: 1!important;
+		}
+	}
+
+	.slick-prev {
+    	left: -15px!important;
+
+    	&:before {
+			content: ''!important;
+			position: relative;
+	    	display: inline-block;
+	    	width: 20px;
+	    	height: 20px;
+			background-image: url('../images/icons/red-arrow-previous.svg');
+			background-repeat: no-repeat;
+			background-size: 7px;
+			background-position: center;
+			opacity: 1!important;
+		}
+	}
+}

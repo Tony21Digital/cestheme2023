@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * This is the default layout for all post type view pages.
+ * All post types inherit this layout and have their own specific layout file
+ * Create any wordpress_posttype_view.xml files (where posttype is the actual post type) to target a specific post type
+ * To target the default posts, create wordpress_post_view.xml
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+    
+		<move element="page.main.title" destination="content" before="-"/>
+
+	</body>
+</page>

@@ -1,0 +1,46 @@
+<?php
+/*
+ * @category: Magepow
+ * @copyright: Copyright (c) 2014 Magepow (http://www.magepow.com/)
+ * @licence: http://www.magepow.com/license-agreement
+ * @author: MichaelHa
+ * @create date: 2019-11-29 17:19:50
+ * @LastEditors: MichaelHa
+ * @LastEditTime: 2019-12-04 11:07:49
+ */
+?>
+<?php
+/**
+ * Categories block
+ *
+ * @var $block \Magepow\Categories\Block\Categories
+ */
+
+$categories       = $block->getCategories();
+$layout           = $block->getLayout();
+$heading          = $block->getHeading();
+$description      = $block->isShowDescription();
+$itemAmount       = $block->getItemAmount();
+?>
+<?php if ($categories) : ?>
+
+<div class="category-subs">
+  <ul class="magepow-categories-<?php echo $layout ?>">
+      <?php foreach ($categories as $cat): ?>
+          <li class="magepow-categories-category-wrapper">
+
+            <a class="magepow-categories-category-image" href="<?php echo $cat->getUrl() ?>">
+              <img src="<?php echo $this->getImage($cat) ?>" alt="<?php echo $cat->getName() ?>"/>
+            </a>
+
+            <div class="category-item--details">
+              <strong class="category-item--name">
+                <a class="magepow-categories-category-name" href="<?php echo $cat->getUrl() ?>"><?php echo $cat->getName() ?></a>
+              </strong>
+            </div>
+
+          </li>
+      <?php endforeach; ?>
+  </ul>
+</div><!-- end category subs -->
+<?php else : endif;?>

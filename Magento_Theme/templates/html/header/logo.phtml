@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+$storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt()
+?>
+
+<style>
+.paypal.checkout.after.paypal-logo {
+    background: #fff;
+    color: #000;
+    padding: 0;
+    border: 0px;
+}
+
+.item > .paypal input {
+    height: auto;
+    width: 45%;
+}
+
+.opc-wrapper input[type=radio] {
+  width: unset;
+  height: unset;
+  margin-right: 15px;
+}
+
+.products.products-grid {
+  clear: both;
+}
+
+.sorter-action:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: inherit;
+    color: #757575;
+    content: '\e613';
+    font-family: luma-icons;
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: 400;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+</style>
+
+<a
+    class="desktop-logo"
+    href="<?= $block->escapeUrl($block->getUrl('')) ?>"
+    title="<?= $block->escapeHtmlAttr($storeName) ?>"
+    aria-label="store logo">
+    <img src="<?= $block->escapeUrl($block->getLogoSrc()) ?>"
+         title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+         alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+            <?= $block->getLogoWidth() ? 'width="' . $block->escapeHtmlAttr($block->getLogoWidth()) . '"' : '' ?>
+            <?= $block->getLogoHeight() ? 'height="' . $block->escapeHtmlAttr($block->getLogoHeight()) . '"' : '' ?>
+    />
+</a>
+
+<a class="mob-logo" href="/">
+	<img src='<?php echo $this->getViewFileUrl('images/mobile/cutting-edge-services.svg'); ?>' alt="cutting edge services logo">
+</a>

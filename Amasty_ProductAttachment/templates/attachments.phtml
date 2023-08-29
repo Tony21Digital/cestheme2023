@@ -1,0 +1,36 @@
+<?php
+/**
+ * Product additional attributes template
+ *
+ * @var \Amasty\ProductAttachment\Block\Widgets\AttachmentsList $block
+**/
+?>
+<?php
+    $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+    $_product = $block->getProduct();
+?>
+
+<?php if ($attachments = $block->getAttachments()): ?>
+<div class="detail-item">
+    <div class="detail-title"><?= $block->escapeHtml($block->getTabTitle()) ?><span class="icon-plus"></span></div>
+    <div class="detail-content" style="display:none;">
+      <?php foreach ($attachments as $attachment): ?>
+        <div class="additional-attributes-wrapper table-wrapper">
+            <div class="am-fileline">
+                <?php if ($block->isShowIcon() && $attachment->getIconUrl()): ?>
+                    <img src="<?= $block->escapeUrl($attachment->getIconUrl()) ?>" class="am-fileicon" />
+                <?php endif; ?>
+
+                <a href="<?= $block->escapeUrl($attachment->getFrontendUrl()) ?>" class="am-filelink" target="_blank">
+                    <?= $block->escapeHtml($attachment->getLabel()); ?>
+                </a>
+
+                <?php if ($block->isShowFilesize() && $attachment->getFileSize()): ?>
+                    <span class="am-filesize">(<?= $block->escapeHtml($attachment->getReadableFileSize()) ?>)</span>
+                <?php endif ?>
+            </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+</div>
+<?php endif;?>

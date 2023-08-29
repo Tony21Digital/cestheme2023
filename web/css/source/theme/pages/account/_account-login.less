@@ -1,0 +1,335 @@
+.customer-account-login {
+
+    .page-title {
+        display: none!important;
+        visibility: hidden;
+    }
+
+    .page-main {
+        padding: 30px 20px;
+
+        @media @desktop {
+            padding: 0;
+        }
+    }
+}
+
+.customer-account-create {
+
+    .page-title {
+        display: none!important;
+        visibility: hidden;
+    }
+
+    .page-main {
+        padding: 30px 20px!important;
+    }
+
+    .form.create.account {
+        float: none;
+    }
+
+    .label {
+        text-align: left!important;
+        width: 100%!important;
+        margin-bottom: 10px!important;
+    }
+
+    .actions-toolbar {
+        margin-left: 0!important;
+    }
+}
+
+.login-container {
+    max-width: 90%;
+    margin: 20px auto 0 auto;
+
+    @media @tablet {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .field {
+        .label {
+            width: 100%!important;
+            text-align: left!important;
+            margin-bottom: 5px;
+        }
+    }
+
+    .actions-toolbar {
+        margin-left: 0!important;
+        display: flex;
+        align-items: center;
+
+        .action.primary {
+            background-color: @black;
+            font-family: @axiformabook;
+            color: @white;
+            border: 1px solid @black!important;
+            padding: 15px 30px;
+            border-radius: 0;
+            font-size: 16px!important;
+            line-height: 16px!important;
+            text-transform: uppercase;
+            transition: all .3s ease;
+
+            span {
+                color: @white;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            &:hover,
+            &:active,
+            &:visited {
+              background-color: @red!important;
+              border: 1px solid @red!important;
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+
+        &:after {
+            display: none;
+        }
+
+        .secondary {
+            float: left;
+            margin-left: 10px;
+
+            .action {
+                margin-top: 0;
+            }
+        }
+
+        .remind {
+            color: #666;
+            font-size: 12px;
+
+            &:visited {
+                color: #666;
+            }
+        }
+    }
+}
+
+.newsletter {
+    font-size: 14px;
+
+    span {
+        font-family: @global-font;
+    }
+}
+
+.note {
+    font-family: @global-font;
+    font-size: 14px;
+}
+
+.password-strength-meter {
+    font-family: @global-font;
+    font-size: 14px;
+}
+
+.remind {
+    span {
+        font-family: @global-font;
+        font-size: 14px;
+    }
+}
+
+.login-container .fieldset>.field>.control {
+    width: 100%;
+}
+
+.login-container .fieldset:after {
+    margin-left: 0;
+    font-family: @global-font;
+    font-size: 12px;
+}
+
+.block-new-customer {
+
+    p {
+        font-size: 14px;
+        line-height: 20px;
+
+        @media @tablet {
+            max-width: 80%;
+        }
+    }
+}
+
+.form.create.account {
+    float: left;
+    position: relative;
+    background-color: #fcfcfd;
+    border: 2px solid @black;
+    border-radius: 10px;
+    padding: 40px 30px 30px 30px;
+    margin-bottom: 40px;
+    width: 100%;
+    min-width: 100%!important;
+
+    @media @tablet {
+        float: none;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        min-width: 80%!important;
+    }
+
+    @media @laptop {
+        float:left;
+        width: 50%;
+        min-width: 50%!important;
+    }
+
+    .actions-toolbar {
+        margin-top: 30px;
+    }
+}
+
+.register-title {
+    color: @black;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    display: block;
+    position: relative;
+    margin-bottom: 40px;
+    font-family: @axiformabook;
+}
+
+.newsletter {
+    &:before {
+        display: none!important;
+    }
+}
+
+.create {
+    margin-bottom: 0;
+
+    .control {
+        width: 100%!important;
+    }
+}
+
+.form.create.account .actions-toolbar {
+
+    .primary {
+        width: 100%;
+    }
+
+    .action.primary {
+        width: 100%;
+        padding: 0!important;
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: 600;
+        height: 50px;
+    }
+}
+
+.block-customer-login {
+    clear: none!important;
+    padding: 30px 0;
+
+    @media @tablet {
+        width: 80%!important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media @laptop {
+        width: 45%!important;
+        margin-left: 5%;
+    }
+}
+
+.login-container {
+
+    .block {
+
+        .block-title {
+            color: @black;
+            text-transform: uppercase;
+            font-size: 21px;
+            line-height: 21px;
+            padding-bottom: 0;
+            margin-bottom: 40px;
+            border-bottom: 0;
+            font-family: @axiformabook;
+
+            strong {
+                font-weight: normal;
+            }
+        }
+    }
+
+    .block-title-secondary {
+        color: @black;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 20px;
+        padding-bottom: 0;
+        margin-bottom: 10px;
+        border-bottom: 0;
+        font-family: @axiformabook;
+
+        strong {
+            font-weight: normal;
+        }
+    }
+}
+
+.account-benefits {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-left: 0;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+
+    li {
+        list-style-type: none;
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+        font-family: @global-font;
+        font-size: 16px;
+        line-height: 18px;
+        padding-left: 35px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            background-image: url('../images/icons/red-tick.png');
+            background-repeat: no-repeat;
+            background-size: 20px;
+            background-position: left;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.form-login {
+    .actions-toolbar {
+        justify-content: flex-start!important;
+    }
+}

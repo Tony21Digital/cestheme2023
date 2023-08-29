@@ -1,0 +1,182 @@
+.newsletter {
+	float: left;
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 60px 0;
+	background-image: url('../images/footer/newsletter-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	.c-container {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		z-index: 5;
+
+		@media @tablet {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	&:after {
+		.dark-overlay;
+	}
+
+	small {
+		display: block;
+		position: relative;
+		margin-bottom: 5px;
+		text-align: center;
+		font-size: 18px;
+		line-height: 18px;
+		font-family: @axiformabook;
+
+		@media @tablet {
+			text-align: left;
+		}
+	}
+
+	.newsletter-title {
+		display: block;
+		position: relative;
+		width: 100%;
+		color: @white;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 28px;
+		line-height: 28px;
+		margin-bottom: 20px;
+		font-family: @axiformabook;
+
+		@media @tablet {
+			display: inline-block;
+			width: 33%;
+			margin-bottom: 0;
+			text-align: left;
+		}
+	}
+
+	form {
+		display: block;
+		position: relative;
+		width: 100%;
+
+		@media @tablet {
+			display: inline-flex;
+			flex-wrap: wrap;
+			width: 68%;
+		}
+
+		.control {
+			width: 100%;
+
+			@media @tablet {
+				width: 75%;
+			}
+
+			@media @desktop {
+				width: 82%;
+			}
+		}
+
+		input[type="text"],
+		input[type="email"] {
+			width: 100%;
+			margin-bottom: 10px;
+			border: 0;
+			height: 50px;
+
+			&::placeholder {
+				color: @black;
+				font-family: @axiformabook;
+			}
+
+			@media @tablet {
+				width: 48%;
+			}
+		}
+
+		input[type="email"] {
+			margin-bottom: 0;
+
+			@media @tablet {
+				margin-left: 0.5%;
+				margin-right: 0.5%;
+			}
+		}
+
+		.actions {
+			width: 100%;
+
+			@media @tablet {
+				width: 25%;
+			}
+
+			@media @desktop {
+				width: 15%;
+			}
+		}
+
+		button[type="submit"] {
+			width: 100%;
+			background-color: @black;
+			border: 1px solid @white;
+			color: @white;
+			height: 50px;
+			font-family: @axiformabook;
+			text-transform: uppercase;
+			margin-top: 10px;
+			margin-bottom: 15px;
+			transition: all .3s ease;
+
+			@media @tablet {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			&:hover {
+				background-color: @white;
+				color: @red;
+				border: 1px solid @white;
+			}
+
+			span {
+				font-family: @axiformabook;
+				text-transform: uppercase;
+				font-size: 14px;
+				line-height: 14px;
+			}
+		}
+
+		p,
+		.agreement {
+			color: @white;
+			font-size: 12px;
+			line-height: 12px;
+			margin-bottom: 0;
+
+			@media @tablet {
+				font-size: 14px;
+				line-height: 14px;
+			}
+
+			a {
+				color: @white;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				&:visited {
+					color: @white;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

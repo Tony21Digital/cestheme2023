@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <referenceBlock name="product.info.overview" remove="true"/>
+
+    <!-- move the breadcrumbs underneath key messages -->
+    <move element="breadcrumbs" destination="page.wrapper" after="key.messages.container"/>
+
+    <!-- change title template -->
+    <referenceBlock name="page.main.title" template="Magento_Catalog::product/title.phtml"/>
+
+    <!-- move title into product-info-main -->
+    <move element="page.main.title" destination="product.info.main" before="-"/>
+
+    <!-- add product secondary info container -->
+    <referenceContainer name="product.info.main">
+      <container name="product.secondary.info" as="product.secondary.info" htmlTag="div" htmlClass="product-secondary--info" before="product.info.price"/>
+    </referenceContainer>
+
+    <!-- move elements into product secondary container -->
+    <move element="product.info.stock.sku" destination="product.secondary.info" before="-" />
+    <move element="product.info.type" destination="product.secondary.info" after="product.info.stock.sku" />
+    <move element="product.info.addto" destination="product.secondary.info" after="-"/>
+
+    <!-- update SKU container class -->
+    <referenceContainer name="product.info.stock.sku" htmlClass="product-sku--code"/>
+
+    <!-- remove review summary block -->
+    <referenceBlock name="product.info.review" remove="true"/>
+
+    <!-- add conditional age warning -->
+    <referenceContainer name="product.info.main">
+      <block class="Magento\Catalog\Block\Product\View" name="product.age.warning" template="Magento_Theme::html/product-age-warning.phtml" before="product.info.price" />
+    </referenceContainer>
+
+    <!-- remove default description block -->
+    <referenceBlock name="product.info.description" remove="true"/>
+
+    <!-- add container for description, specification, delivery and reviews blocks -->
+    <referenceContainer name="product.info.main">
+
+      <block class="Amasty\Customform\Block\Init" name="amasty.customform.init.7">
+          <arguments>
+              <argument name="form_id" xsi:type="string">7</argument>
+          </arguments>
+      </block>
+
+      <container name="info-accordion" as="info-accordion" htmlTag="div" htmlClass="info-accordion" after="-">
+        <block class="Magento\Framework\View\Element\Template" name="product.description.new" template="Magento_Catalog::product/product-description.phtml" before="-" />
+          <!-- move amasty custom product attachment tab into info-accordion -->
+          <block name="amfile_attachment" class="Amasty\ProductAttachment\Block\Product\AttachmentsTab" template="Amasty_ProductAttachment::attachments.phtml"/>
+        <!-- add delivery block to show before reviews -->
+        <block class="Magento\Framework\View\Element\Template" name="product.delivery" template="Magento_Theme::html/delivery-info.phtml" before="reviews.tab" />
+      </container>
+    </referenceContainer>
+
+    <!-- remove product specification tab  -->
+    <referenceBlock name="product.attributes" remove="true"/>
+
+    <!-- move More Information content into accordion -->
+    <move element="product.attributes" destination="info-accordion" after="product.description.new"/>
+
+    <!-- move reviews block into accordion -->
+    <move element="reviews.tab" destination="info-accordion" after="-"/>
+
+    <!-- add need help block into media container -->
+    <referenceContainer name="product.info.media">
+      <block class="Magento\Framework\View\Element\Template" name="mobile.scrollto" template="Magento_Theme::html/mobile-product-scrollto.phtml" before="-" />
+      <block class="Magento\Framework\View\Element\Template" name="product.need.help" template="Magento_Theme::html/product-need-help.phtml" after="-" />
+    </referenceContainer>
+
+    <!-- move upsells -->
+    <move element="product.info.upsell" destination="main.content" before="cte.container"/>
+
+    <!-- move related -->
+    <move element="catalog.product.related" destination="main.content" before="cte.container"/>
+
+  </body>
+</page>

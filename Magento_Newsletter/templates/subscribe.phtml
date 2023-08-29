@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Newsletter\Block\Subscribe $block */
+?>
+<div class="c-container">
+  <div class="newsletter-title">
+    <small>Stay Connected</small>
+    <h5>Join Our Newsletter</h5>
+  </div>
+
+        <form class="form subscribe"
+            novalidate
+            action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-detail">
+
+                <div class="control">
+
+                  <input name="name" type="text" placeholder="Name">
+
+                  <input name="email" type="email" id="newsletter"
+                         placeholder="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                         data-mage-init='{"mage/trim-input":{}}'
+                         data-validate="{required:true, 'validate-email':true}"
+                  />
+
+                </div>
+
+            <div class="actions">
+                <button class="action subscribe primary"
+                        title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>"
+                        type="submit"
+                        aria-label="Subscribe">
+                    <span><?= $block->escapeHtml(__('Subscribe')) ?></span>
+                </button>
+            </div>
+
+            <div class="form-row">
+							<input class="checkbox required" name="privacy" type="checkbox" data-validate="{required:true, 'validate-checkbox':true}">
+            	<label class="agreement" for="privacy">I confirm I have read and agree to the <a href="/terms-conditions">terms</a> and <a href="/privacy-policy">privacy policy</a>.</label>
+						</div>
+        </form>
+
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "newsletter-validate-detail"
+            }
+        }
+    }
+</script>

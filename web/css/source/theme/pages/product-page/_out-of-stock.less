@@ -1,0 +1,118 @@
+.amxnotif-block {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 30px 20px;
+    background-color: @grey;
+    border-left: 10px solid #0096c7;
+
+    label {
+        float: none!important;
+        display: block;
+        position: relative;
+        padding: 0!important;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #666;
+        text-align: left!important;
+        width: 100%!important;
+
+        @media @desktop {
+            max-width: 80%;
+        }
+
+        &:not(.label) {
+            padding-left: 30px!important;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: -5px;
+                left: 0;
+                width: 25px;
+                height: 25px;
+                background-image: url('../images/icons/icon-info.png');
+                background-repeat: no-repeat;
+                background-size: 25px;
+                background-position: center;
+            }
+        }
+
+        a {
+            color: @red;
+
+            &:visited {
+                color: @red;
+            }
+        }
+    }
+
+    input[type="email"] {
+        width: 100%;
+        border: 0;
+        height: 50px;
+        margin-bottom: 15px;
+        padding-left: 20px;
+    }
+
+    button[type="submit"] {
+        background-color: @red;
+        border: 1px solid @red;
+        height: auto;
+        color: @white;
+        font-family: @axiformabold;
+        font-size: 18px;
+        line-height: 18px;
+        padding: 15px 25px 13px 25px;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: darken(@red, 5%);
+            border: 1px solid @red;
+        }
+    }
+
+    .actions-toolbar {
+        display: block;
+        width: 100%;
+        margin-left: 0!important;
+        margin-top: 20px;
+    }
+}
+
+.amxnotif-block .input-fields {
+    width: 100%!important;
+}
+
+@media (max-width: 768px) {
+
+    .notification-container {
+        flex-direction: column;
+
+        label {
+            width: auto!important;
+            font-size: 12px;
+            line-height: 12px;
+        }
+
+        input[type="checkbox"] {
+            margin: 7px 7px 0 0!important;
+        }
+    }
+
+    .amxnotif-block .actions-toolbar {
+        max-width: 100%!important;
+    }
+}
+
+.product-info-main .product.alert {
+    a {
+        color: @red;
+
+        &:visited {
+            color: @red;
+        }
+    }
+}

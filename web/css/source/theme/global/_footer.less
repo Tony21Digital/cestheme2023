@@ -1,0 +1,255 @@
+.page-footer {
+    padding: 60px 20px 30px 20px;
+    background-color: #202020;
+    color: @white;
+
+    a {
+        color: #b3b3b3;
+
+        &:visited {
+            color: #b3b3b3;
+        }
+    }
+}
+
+.footer.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 0;
+    border-top: 0;
+    padding: 0;
+
+    .footer-logo {
+        width: 100%;
+        margin-bottom: 30px;
+
+        @media @tablet {
+            width: 15%;
+        }
+
+        @media @desktop {
+            width: 25%;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+
+    .footer.links {
+        width: 100%;
+        margin-bottom: 30px;
+        padding: 0;
+
+        @media @tablet {
+            width: 25%;
+            padding-left: 15px;
+        }
+
+        li {
+            display: block;
+            position: relative;
+            width: 100%;
+            margin-bottom: 5px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            a {
+                font-size: 14px;
+                line-height: 14px;
+                font-family: @global-font;
+                color: #b3b3b3;
+
+                @media @desktop {
+                    font-size: 16px;
+                    line-height: 16px;
+                }
+            }
+        }
+    }
+
+    .safe-secure {
+        width: 100%;
+        margin-bottom: 30px;
+
+        @media @tablet {
+            width: 30%;
+            padding-left: 15px;
+        }
+
+        @media @desktop {
+            width: 25%;
+        }
+
+        img {
+            width: 100%;
+            max-width: 150px;
+
+            @media @desktop {
+                max-width: 200px;
+            }
+        }
+    }
+
+    .contact {
+        width: 100%;
+        margin-bottom: 30px;
+
+        @media @tablet {
+            width: 30%;
+        }
+
+        @media @desktop {
+            width: 25%;
+        }
+
+        address {
+            font-style: normal;
+            margin-bottom: 20px;
+            color: #b3b3b3;
+            font-size: 14px;
+            line-height: 18px;
+
+            @media @desktop {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    .socials {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        li {
+            width: 40px;
+            position: relative;
+
+            &:not(:last-of-type) {
+                margin-right: 35px;
+
+                @media @desktop {
+                    margin-right: 15px;
+                }
+            }
+
+            img {
+                width: 40px;
+            }
+
+            &:hover {
+
+                .social-grey {
+                    opacity: 0;
+                }
+
+                .social-red {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+}
+
+.social-grey {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+.social-red {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.footer-col--heading {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: @axiformabook;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    width: 100%;
+
+    .c-container {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px solid @darkgrey;
+        padding-top: 30px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    ul {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 10px;
+
+        @media @tablet {
+            margin-left: auto !important;
+            margin-top: 0;
+        }
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+        width: auto;
+
+        &:nth-of-type(2) {
+            border-left: 1px solid #999;
+            border-right: 1px solid #999;
+            padding: 0 15px;
+            margin:  0 15px !important;
+        }
+
+        a {
+            font-size: 12px;
+            color: #b3b3b3;
+
+            @media @laptop {
+                font-size: 14px;
+            }
+        }
+    }
+
+    p {
+        font-size: 12px;
+        color: #b3b3b3;
+        margin-bottom: 0;
+        width: 100%;
+
+        @media @laptop {
+            font-size: 14px;
+        }
+
+        span {
+            width: auto;
+            float: left;
+
+            @media @tablet {
+                float: right;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+/** @var \Magento\CatalogWidget\Block\Product\ProductsList $block */
+?>
+<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())) : ?>
+    <?php
+    $type = 'widget-product-grid';
+
+    $mode = 'grid';
+
+    $image = 'new_products_content_widget_grid';
+    $items = $block->getProductCollection()->getItems();
+
+    $showWishlist = true;
+    $showCompare = true;
+    $showCart = true;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    $description = false;
+    ?>
+
+
+            <?= /* @noEscape */ '<!-- ' . $image . '-->' ?>
+
+                <ol class="product-items widget-product-grid custom-product--slider">
+                    <?php $iterator = 1; ?>
+                    <?php foreach ($items as $_item) : ?>
+                        <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="item">' : '</li><li class="item">' ?>
+                        <div class="product-info">
+                            <a href="<?= $escaper->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
+                                <?= $block->getImage($_item, $image)->toHtml() ?>
+                            </a>
+                            <div class="item-details">
+                                <strong class="product-item-name">
+                                    <a title="<?= $escaper->escapeHtmlAttr($_item->getName()) ?>"
+                                       href="<?= $escaper->escapeUrl($block->getProductUrl($_item)) ?>"
+                                       class="product-item-link">
+                                        <?= $escaper->escapeHtml($_item->getName()) ?>
+                                    </a>
+                                </strong>
+                             
+                               <p><strong>SKU:</strong> <?= $escaper->escapeHtml($_item->getSku()) ?></p>
+                                    <div class="item-inner">
+                                    <?= $block->getProductPriceHtml($_item, $type) ?>
+                                              <a href="<?= $escaper->escapeUrl($block->getProductUrl($_item)) ?>">View Product</a>
+                                    </div>
+
+                            </div>
+                        </div>
+                        <?= ($iterator == count($items) + 1) ? '</li>' : '' ?>
+                    <?php endforeach ?>
+                </ol>
+
+            <?= $block->getPagerHtml() ?>
+
+    
+<?php endif;?>

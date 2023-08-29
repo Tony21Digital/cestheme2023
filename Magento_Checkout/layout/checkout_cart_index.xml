@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+
+      <referenceContainer name="page.top">
+        <block class="Magento\Cms\Block\Block" name="key.messages" before="breadcrumbs">
+          <arguments>
+              <argument name="block_id" xsi:type="string">key_messages</argument>
+          </arguments>
+        </block>
+      </referenceContainer>
+
+      <referenceBlock name="cart.view.paybyfinance" remove="true"/>
+      <referenceBlock name="category-bottom" remove="true" />
+
+    </body>
+</page>

@@ -1,0 +1,374 @@
+.campaign-banner {
+    position: relative !important;
+    width: 100vw !important;
+    left: 50% !important;
+    margin-left: -50vw !important;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.campaign-intro {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    @media @tablet {
+        flex-direction: row;
+        padding: 60px 0;
+    }
+
+    .txt-col {
+        width: 100%;
+        padding: 60px 30px;
+
+        @media @tablet {
+            width: 60%;
+            padding: 30px 90px 30px 0;
+        }
+
+        img {
+            max-width: 200px;
+            margin-bottom: 30px;
+
+            @media @laptop {
+                max-width: 250px;
+            }
+        }
+
+        h2 {
+            color: #008981;
+            margin-bottom: 30px;
+            font-size: 22px;
+            line-height: 32px;
+
+            @media @laptop {
+                font-size: 26px;
+                line-height: 34px;
+            }
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            border: 1px solid #008981;
+            background-color: @white;
+            color: #008981;
+            padding: 10px 30px 7px 30px;
+            text-transform: uppercase;
+            font-family: @axiformabook;
+            margin-top: 20px;
+
+            &:hover {
+                background-color: #008981;
+                text-decoration: none;
+                color: @white;
+            }
+        }
+    }
+
+    .img-col {
+        width: 100%;
+        text-align: center;
+
+        @media @tablet {
+            width: 40%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .brand-logo {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            max-width: 250px;
+
+            @media @desktop {
+                max-width: 400px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.campaign-quote {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 60px;
+    background-color: #008981;
+
+    blockquote {
+        font-family:@helvetica-light;
+        text-align: center;
+        font-size: 22px;
+        line-height: 30px;
+        color: @white;
+
+        @media @laptop {
+            font-size: 28px;
+            line-height: 38px;
+        }
+
+        @media @laptop {
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    cite {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        font-family: @global-font;
+        font-weight: 700;
+        font-style: normal;
+        margin-top: 30px;
+        color: @white;
+
+        @media @laptop {
+            font-size: 18px;
+        }
+    }
+}
+
+.campaign-products {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 60px 0;
+
+    h3 {
+        color: #008981;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        line-height: 34px;
+        font-family: @axiformabook;
+
+        @media @laptop {
+            font-size: 28px;
+            line-height: 38px;
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @media @tablet {
+            justify-content: center;
+            max-width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        li {
+            display: inline-block;
+            width: 48%;
+            padding: 20px;
+            border: 1px solid #eee;
+            transition: all .3s ease;
+            margin-right: 2%;
+            margin-bottom: 2%;
+
+            &:nth-of-type(2n) {
+                margin-right: 0;
+            }
+
+            &:hover {
+                border-color: #008981;
+
+                .product-title {
+                    color: #008981;
+
+                    a {
+                       color: #008981; 
+                    }
+                }
+            }
+
+            img {
+                margin-bottom: 20px;
+            }
+
+            .product-title {
+                text-transform: uppercase;
+                font-size: 14px;
+                line-height: 22px;
+                font-family: @axiformabook;
+                text-align: center;
+
+                @media @laptop {
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+
+                a {
+                    color: @black;
+
+                    &:visited {
+                        color: @black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.campaign-blog {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid #008981;
+    padding: 60px 30px;
+
+    @media @tablet {
+        flex-direction: row;
+        padding: 60px 60px;
+    }
+
+    .img-col {
+        width: 100%;
+        margin-bottom: 30px;
+
+        @media @tablet {
+            width: 40%;
+            margin-bottom: 0;
+        }
+    }
+
+    .txt-col {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        @media @tablet {
+            width: 60%;
+            padding: 0 60px;
+        }
+    }
+
+    h4 {
+        font-size: 22px;
+        line-height: 30px;
+        text-transform: uppercase;
+        font-family: @axiformabook;
+        color: #008981;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: @black;
+        font-family: @global-font;
+        margin-bottom: 20px;
+    }
+
+    a {
+        display: inline-block;
+        border: 1px solid #008981;
+        background-color: @white;
+        margin-top: 30px;
+        color: #008981;
+        padding: 10px 30px 7px 30px;
+        text-transform: uppercase;
+        font-family: @axiformabook;
+
+        &:hover {
+            background-color: #008981;
+            text-decoration: none;
+            color: @white;
+        }
+    }
+}
+
+.campaign-callout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 350px;
+    background-image: url('../images/why-backing.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: @red;
+        opacity: .9;
+    }
+
+    .speak-heading {
+        font-family: @axiformabook;
+        text-transform: uppercase;
+        color: @white;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 24px;
+        z-index: 2;
+
+        @media @desktop {
+            font-size: 26px;
+            line-height: 30px;
+        }
+    }
+
+    p {
+        color: @white;
+        font-family: @axiformabook;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        z-index: 2;
+
+        @media @desktop {
+            font-size: 18px;
+            line-height: 24px;
+            max-width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        strong {
+            font-family: @axiformabold;
+        }
+
+        a {
+            color: @white;
+
+            &:visited {
+                color: @white;
+            }
+        }
+    }
+}

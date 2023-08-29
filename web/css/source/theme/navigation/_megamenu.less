@@ -1,0 +1,273 @@
+.checkout-index-index {
+    
+    .nav-sections {
+        display: block;
+    }
+}
+
+@media @tablet {
+
+    .ves-megamenu .navigation .nav-item .dynamic-content {
+        width: 60%!important;
+        padding-right: 0!important;
+        border-left: 1px solid #ddd;
+    }
+
+    .item-sidebar.right-sidebar {
+
+        img {
+            display: block;
+        }
+    }
+}
+
+@media @laptop {
+
+    .navigation ul {
+        position: unset!important;
+    }
+
+    .nav-desktop {
+        background-color: transparent;
+
+        .navigation {
+            padding: 0;
+            margin-right: unset!important;
+            text-align: right;
+
+            .nav-item > a {
+                border-bottom: 0!important;
+                padding: 0 5px!important;
+            }
+        }
+    }
+
+    .nav-sections {
+        background-color: transparent;
+        margin-bottom: 0;
+    }
+
+    .ves-megamenu.ves-mdrilldown .navigation {
+
+        .level0 {
+
+            &:not(:last-of-type) {
+            
+                a {
+
+                    &:after {
+                        content: "";
+                        display: inline-block;
+                        position: relative;
+                        right: -5px;
+                        width: 10px;
+                        height: 10px;
+                        background-image: url('../images/icons/menu-arrow.svg');
+                        background-repeat: no-repeat;
+                        background-size: 10px;
+                        background-position: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .ves-megamenu .navigation > ul {
+
+        span {
+            color: @white;
+            font-size: 10px;
+            line-height: 10px;
+            font-family: @axiformabook;
+            font-weight: normal;
+
+            @media @xldesktop {
+                font-size: 14px;
+                line-height: 14px;
+            }
+        }
+    }
+
+    .ves-megamenu .navigation .level0.current > a {
+        background-color: transparent!important;
+        color: #fff;
+    }
+
+    .ves-megamenu .nav-item.active > a {
+        background-color: transparent!important;
+    }
+
+    .ves-megamenu .navigation .level0 .submenu .dynamic-items .dynamic-active a {
+        border-right: 0!important;
+    }
+
+    .ves-megamenu .navigation .nav-item.subhover > .submenu {
+        width: 70% !important;
+        margin: 0 15%!important;
+        top: auto !important;
+
+        a {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    .ves-megamenu .dynamic-items {
+        padding: 0!important;
+        width: 40%!important;
+    }
+
+    .ves-megamenu .navigation .nav-item .dynamic-items > ul > li {
+        text-align: left;
+
+        span {
+            color: @darkestgrey;
+        }
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+
+    .ves-megamenu .navigation .nav-item .dynamic-items > ul > li > a {
+        text-indent: unset!important;
+        padding: 10px 15px!important;
+        border-right: 0!important;
+    }
+
+    .ves-megamenu.top-navigation > .navigation {
+        padding: 0!important;
+    }
+
+    .ves-megamenu .navigation .nav-item .dynamic-items > ul > li:first-child > a {
+        border-top: 0!important;
+    }
+
+    .ves-megamenu .navigation .level0 .submenu .dynamic-items .nav-item a {
+        line-height: 18px!important;
+        text-align: left;
+    }
+
+    .ves-megamenu .navigation .nav-item .dynamic-content {
+        text-align: left;
+    }
+
+    .ves-megamenu .navigation .nav-item .subhover > .submenu > .submenu-inner {
+        padding: 15px!important;
+    }
+
+    .level2.dropdown-submenu {
+
+        span {
+            color: @darkestgrey!important;
+        }
+    }
+
+    .navigation .level0 .submenu a:hover {
+        background: #eee!important;
+    }
+
+    .ves-megamenu.ves-dhorizontal .level0 .submenu .nav-item > a {
+        line-height: 34px!important;
+    }
+
+    .ves-megamenu .navigation .level0 .submenu .nav-item.current > a {
+        border-color: transparent!important;
+    }
+}
+
+@media @xxldesktop {
+
+    .nav-desktop {
+
+        .navigation {
+
+            .nav-item > a {
+                border-bottom: 0!important;
+                padding: 0 15px!important;
+            }
+        }
+    }
+
+    .ves-megamenu.ves-mdrilldown .navigation {
+
+        .level0 {
+            
+            a {
+
+                &:after {
+                    right: -10px;
+                }
+            }
+        }
+    }
+}
+
+.ves-megamenu .navigation .submenu .submenu-inner .item-footer {
+    border-top: 1px solid #ddd;
+}
+
+.submenu-brands {
+    display: flex;
+    align-items: center;
+    padding-top: 23px;
+
+    .title {
+        display: inline-block;
+        margin-bottom: 0;
+        width: auto;
+        color: @red;
+        font-family: @axiformabook;
+        font-size: 14px;
+        line-height: 14px;
+        text-transform: uppercase;
+        padding-left: 20px;
+    }
+
+    ul {
+        height: auto;
+        vertical-align: top;
+        min-height: auto!important;
+        border-right: 0!important;
+        margin-left: auto!important;
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+        flex: 1;
+
+        img {
+            width: 100%;
+            max-width: 120px;
+        }
+    }
+
+    .ui-corner-all {
+        padding: 0!important;
+    }
+}
+
+/* .ves-megamenu .navigation .level0 .submenu .dynamic-items .nav-item a {
+    background-image: url('../images/Right-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right 20px top 15px;
+    background-size: 5px;
+}
+
+.ves-megamenu .navigation .level0 .submenu .dynamic-items .dynamic-active a {
+    background-image: url('../images/Right-arrow.svg')!important;
+    background-repeat: no-repeat!important;
+    background-position: right 20px top 15px!important;
+    background-size: 5px!important;
+    border-bottom: 0!important;
+} */
+
+.nav-open .ves-megamenu .navigation .nav-6 .drill-opener {
+    display: none!important;
+}
+
+.navigation .nav-6 .submenu {
+    display: none!important;
+}

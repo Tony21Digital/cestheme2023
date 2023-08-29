@@ -1,0 +1,13 @@
+<?php
+$block = $block->getLayout()->createBlock('Magento\Catalog\Block\Product\View\Attributes');
+$product = $block->getProduct();
+
+if($product->getDescription()) :
+?>
+<div class="detail-item">
+    <div class="detail-title active-tab">Product Description<span class="icon-plus"></span></div>
+    <div class="detail-content open" style="display:block;">
+        <?php echo $product->getDescription(); ?>
+    </div>
+</div>
+<?php endif; ?>

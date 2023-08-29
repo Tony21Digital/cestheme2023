@@ -1,0 +1,50 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<div class="category-description">
+    <?php if ($_description = $block->getCurrentCategory()->getDescription()) :?>
+            <?= /* @noEscape */ $this->helper(Magento\Catalog\Helper\Output::class)->categoryAttribute(
+                $block->getCurrentCategory(),
+                $_description,
+                'description'
+            ) ?>
+    <?php endif; ?>
+    <?php if ($_readMoreDescription = $block->getCurrentCategory()->getData('read_more_description')) :?>
+        <div class="category-description readmore">
+            <div class="corner-btn--red">
+                <a class="readmore-toggle"><span>Read More</span></a>
+            </div>
+            <div class="category-description readmore-content" style="display: none;">
+                <p>
+                    <span>
+                        <?= $_readMoreDescription ?>
+                    </span>
+                </p>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+<script>
+// Sub Category Read More Link //
+require([
+    'jquery'
+], function($){
+    $(document).ready(function() {
+        $(".readmore-toggle").click(function() {
+        	jQuery('.readmore-content').toggleClass("open").slideToggle("fast");
+        });
+    });
+});
+</script>
