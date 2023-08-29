@@ -38,7 +38,7 @@ $schema = ($block->getZone() == 'item_view') ? true : false;
         ]); ?>
     <span class="price-wrapper price-excluding-tax" data-label="EX VAT">
         <span class="price">
-            <?php /* @escapeNotVerified */ echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($priceModel->getAmount()->getBaseAmount(),2),true,false)?> <span class="vatstatus">EX VAT</span>
+            <?php /* @escapeNotVerified */ echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($priceModel->getAmount()->getBaseAmount(),2),true,false)?>
         </span>
     </span>
 </span>

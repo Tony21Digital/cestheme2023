@@ -125,6 +125,12 @@
 			padding-top: 20px;
 			margin-top : 10px;
 
+			.special-price {
+
+				.price-label {
+					display:none;}
+
+			}
 
 			.price-box {
 				min-height: 40px;
@@ -173,9 +179,36 @@
 						
 						font-size:unset;
 
+						&.price-excluding-tax {
+
+							&:after {
+
+								content: attr(data-label);
+								font-size: 14px;
+								line-height: 10px;
+								color: #7d7d7d;
+								font-family: 'Helvetica';
+								text-transform: uppercase;
+								margin-left: 5px;
+
+							}
+						}
+
 
 						.price {
 							position:relative;
+							@media (max-width:420px) {
+								display:flex;
+								flex-direction:column;
+								align-items:center;
+								justify-content:center;
+
+								span {
+									margin-top:10px;
+								}
+
+							}
+
 													
 
 							&:after {
