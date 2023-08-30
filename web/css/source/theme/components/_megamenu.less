@@ -1,0 +1,111 @@
+/* Custom VES Megamenu tweaks */
+
+
+div {
+
+    &.ves-megamenu {
+
+        @media (max-width:991px) {
+
+            height:100vh;
+
+        }
+
+    }
+
+
+    &.sections {
+
+        &.nav-sections {
+
+            @media (max-width:768px) {
+
+                width: 90%;
+                left : -100%;
+
+
+            }
+
+            @media (min-width:769px) and (max-width:991px) {
+
+                width: 50%;
+                left : -100%;
+
+            }
+
+            a {
+
+                &.nav-anchor {
+                    position:relative;
+
+             
+
+            .opener {
+                @media (max-width:991px) {
+                    display         : block;
+                    position        : absolute;
+                    top             : 0;
+                    right           : 0;
+                    display         : flex !important;
+                    align-items     : center;
+                    justify-content : center;
+                    height          : 100% !important;
+                    line-height     : 100% !important;
+                    border          : 0 !important;
+                    background-color: transparent !important;
+                    z-index:1;
+
+                    &:before {
+
+                        content            : "" !important;
+                        background-image   : url('../images/Right-arrow.svg');
+                        background-repeat  : no-repeat;
+                        background-size    : 10px;
+                        background-position: center;
+                        width              : 20px;
+                        height             : 20px;
+                        transition:all 0.3s;
+                    }
+
+                }
+
+                &.item-active {
+
+                    &:before {
+                        transform:rotate(90deg);
+                    }
+
+
+                }
+
+            }
+
+
+        }
+
+      
+
+    }
+
+    .submenu {
+        @media (max-width:767px) {
+        display:unset;
+        z-index:9999;
+        position:fixed;
+        background:rgba(255,255,255,0.7);
+        backdrop-filter:blur(5px);
+       
+
+            max-width:90%;
+            margin:0 5%;
+            box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+            overflow:visible;
+
+        }
+       
+
+    }
+}
+}
+
+}
