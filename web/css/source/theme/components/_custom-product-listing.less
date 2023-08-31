@@ -118,12 +118,17 @@
 			font-size    : 10px;
 		}
 
+		.product-item-name {
+			min-height:80px !important;
+		}
+
 		.item-inner,
 		.product-item-inner {
 
 			border-top : 1px solid grey;
 			padding-top: 20px;
 			margin-top : 10px;
+			padding-left:0px !important;
 
 			.special-price {
 
@@ -228,12 +233,17 @@
 			}
 
 			a {
+				&.minimal-price-link {
+					display:none;
+				}
+
+				&.product-item-link {
 				display       : block;
 				width         : 100%;
 				color         : @red;
 				background    : white;
 				font-size     : 14px;
-				padding       : 10px;
+				padding       : 10px 5px;
 				text-align    : center;
 				margin-top    : 16px;
 				border        : solid 1px @red;
@@ -245,10 +255,22 @@
 					background     : @red;
 					color          : white;
 				}
-
+			}
 
 			}
 
+			.normal-price {
+				margin-top:-2.3rem;
+				display:block;
+				margin-bottom:2.8rem;
+			}
+
+		}
+
+		div {
+			&[class^="swatch-opt"]:empty {
+				display:none;
+			}
 		}
 
 	}

@@ -36,8 +36,10 @@ body {
 
             ul {
                 &.items {
-                    max-width:1152px;
+                    max-width:1366px;
                     justify-content:flex-start;
+                    padding-left:0px;
+                    padding-right:0px;
                 }
             }
         }
@@ -47,6 +49,10 @@ body {
             &#maincontent {
 
                 .category-top {
+
+                    @media (max-width:767px) {
+                        margin-top:30px;
+                    }
 
                     padding-left:20px;
                     padding-right:20px;
@@ -80,7 +86,7 @@ body {
                                 content:'';
                                 width:100%;
                                 height:200px;
-                                background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+                                background: linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
                                 display:block;
                                 position:absolute;
                                 left:0px;
