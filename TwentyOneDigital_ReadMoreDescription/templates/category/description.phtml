@@ -23,15 +23,16 @@
     <?php endif; ?>
     <?php if ($_readMoreDescription = $block->getCurrentCategory()->getData('read_more_description')) :?>
         <div class="category-description readmore">
-            <div class="corner-btn--red">
-                <a class="readmore-toggle"><span>Read More</span></a>
-            </div>
+           
             <div class="category-description readmore-content" style="display: none;">
                 <p>
                     <span>
                         <?= $_readMoreDescription ?>
                     </span>
                 </p>
+            </div>
+            <div class="category-read-more">
+                <a class="readmore-toggle">Read More</a>
             </div>
         </div>
     <?php endif; ?>

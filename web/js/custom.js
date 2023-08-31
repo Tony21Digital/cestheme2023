@@ -210,3 +210,76 @@ require([
 		$(this).next().toggleClass("open").slideToggle("fast")
 	});
 });
+
+/* Menu Patch */
+
+window.addEventListener('DOMContentLoaded',()=> {
+
+	const _isMobile = window.matchMedia('(max-width:768px)').matches;
+
+	if (_isMobile) {
+	const _tgt = document.querySelector('.ves-mdrilldown');
+	if (_tgt) {
+
+		const _anchors = _tgt.querySelectorAll('.nav-anchor');
+		[..._anchors].map((a)=> {
+			const _spans = a.children;
+			const _title = _spans[0].textContent;
+
+			if (_spans.length === 2) {
+
+				const _sib = a.nextElementSibling;
+				if (_sib) {
+					const _o = _sib.querySelectorAll('.hidden-lg');
+					if (_o) {
+					 	const _back = `<div class="drilldown-back">
+						<a href="#">
+						<span class="drill-opener" style="display:block"></span>
+						<span class="current-cat">${_title}</span>
+						</a>
+						</div>`;
+						[..._o].map((b)=> {
+							b.insertAdjacentHTML('afterbegin',_back);
+						});
+						
+					}
+				}
+			}
+		});
+
+		/* set the click action */
+
+		const _db = document.querySelectorAll('.drilldown-back');
+		if (_db) {
+
+			_db.forEach(d=> {
+
+				d.onclick = (e)=> {
+
+					const _n =(e.target).closest('.nav-item');
+					const _l = _n.querySelector('.nav-anchor > .opener.item-active')
+					_l.click();
+				}
+
+			});
+
+		}
+
+	}
+}
+
+/* sliding filter */
+
+const _bodyClassName = "filteractive";
+const _triggers = document.querySelectorAll('.filter-toggle-desktop, .hide-filter-block');
+if (_triggers.length) {
+
+	_triggers.forEach(t=> {
+		t.onclick = ()=> {document.querySelector('body').classList.toggle(_bodyClassName)};
+
+	});
+
+}
+
+
+});

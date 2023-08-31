@@ -22,14 +22,13 @@
     <div class="toolbar toolbar-products" data-mage-init='{"productListToolbarForm":<?= /* @noEscape */ $widgetOptions ?>}'>
 
         <a class="filter-toggle"><span>Filter Products</span></a>
+        <a class="filter-toggle-desktop"><span>Filter Products</span></a>
         
         <?php if ($block->isExpanded()) :?>
             <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/viewmode.phtml')) ?>
         <?php endif; ?>
 
         <?= $block->getPagerHtml() ?>
-
-        <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
 
         <?php if ($block->isExpanded()) :?>
             <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
