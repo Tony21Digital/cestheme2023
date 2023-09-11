@@ -49,6 +49,24 @@
 		max-width: none!important;
 	}
 
+	.category-top {
+
+		display: block;
+		position: relative;
+		max-width: 1366px;
+		width: 100%;
+		height: auto;
+		margin-top: 20px;
+		margin-bottom: 0;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 20px;
+		text-align: center;
+
+				
+	}
+
+
 	.page-title-wrapper {
 		text-align: center;
 		width: 100%;
@@ -69,12 +87,19 @@
 			}
 		}
 	}
+
+	img {
+		&.amasty-label-image {
+			max-width:100px !important;
+			width:100px !important;
+		}
+	}
 }
 
 
 
 .age-notice {
-	display: inline-block;
+	display: none;
 	position: relative;
 	width: auto;
 	padding: 15px;
@@ -291,12 +316,23 @@
     list-style: none none;
 }
 
+.filter-options-content {
+	.items {
+		border-bottom:1px solid #ccc;
+
+	}
+
+}
+
 .filter-options .filter-options-content .item {
     margin-bottom: 10px;
     list-style-type: none;
+	font-size:14px;
+
 
     a {
     	color: @darkgrey;
+		font-size:14px;
 
     	&:visited {
     		color: @darkgrey;
@@ -600,7 +636,7 @@ ol {
 
 				li {
 					width:100% !important;
-					padding:0px !important;
+					//padding:0px !important;
 					margin:0 !important;
 					min-width:100px;
 					

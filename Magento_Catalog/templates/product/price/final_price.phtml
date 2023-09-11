@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
@@ -17,8 +18,14 @@ $priceModel = $block->getPriceType('regular_price');
 $finalPriceModel = $block->getPriceType('final_price');
 $idSuffix = $block->getIdSuffix() ? $block->getIdSuffix() : '';
 $schema = ($block->getZone() == 'item_view') ? true : false;
+$cur = new NumberFormatter('en_GB', NumberFormatter::CURRENCY);
+
+/* get the tax helper */
+
+$_taxHelper = $this->helper('Magento\Catalog\Helper\Data');
+
 ?>
-<?php if ($block->hasSpecialPrice()) :?>
+<?php if ($block->hasSpecialPrice()) : ?>
     <span class="special-price">
         <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
             'display_label'     => __('Special Price'),
@@ -36,14 +43,37 @@ $schema = ($block->getZone() == 'item_view') ? true : false;
             'include_container' => true,
             'skip_adjustments'  => true
         ]); ?>
-    <span class="price-wrapper price-excluding-tax" data-label="EX VAT">
-        <span class="price">
-            <?php /* @escapeNotVerified */ echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($priceModel->getAmount()->getBaseAmount(),2),true,false)?>
-        </span>
-    </span>
-</span>
+        <span class="price-wrapper price-excluding-tax" data-label="EX VAT">
 
-<?php else :?>
+            <span class="price">
+                <?php /* @escapeNotVerified */ echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($priceModel->getAmount()->getBaseAmount(), 2), true, false) ?>
+            </span>
+        </span>
+
+        <?php
+        $prod = $block->getSaleableItem();
+        $regPriceExclTax = $prod->getPriceInfo()->getPrice('regular_price')->getValue();
+        $finalPriceExclTax = $prod->getPriceInfo()->getPrice('final_price')->getValue();
+        $regPriceIncTax = $_taxHelper->getTaxPrice($prod,$prod->getPriceInfo()->getPrice('regular_price')->getValue(),true);
+        $finalPriceIncTax = $_taxHelper->getTaxPrice($prod,$prod->getPriceInfo()->getPrice('final_price')->getValue(),true);
+        if ($regPriceExclTax > $finalPriceExclTax):
+            $diffExTax = $regPriceExclTax - $finalPriceExclTax;
+            $diffIncTax = $regPriceIncTax - $finalPriceIncTax;
+        ?>
+    </span>
+    <span class="saving price-excluding-tax">
+        <span>Save</span><span><?= $cur->formatCurrency($diffExTax,'GBP') ?></span>
+    </span>
+    <span class="saving price-including-tax">
+        <span>Save</span><span><?= $cur->formatCurrency($diffIncTax,'GBP') ?></span>
+
+    </span>
+    <?php 
+    endif;
+
+?>
+
+<?php else : ?>
     <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
         'price_id'          => $block->getPriceId('product-price-' . $idSuffix),
         'price_type'        => 'finalPrice',
@@ -52,14 +82,14 @@ $schema = ($block->getZone() == 'item_view') ? true : false;
     ]); ?>
 <?php endif; ?>
 
-<?php if ($block->showMinimalPrice()) :?>
-    <?php if ($block->getUseLinkForAsLowAs()) :?>
-        <a href="<?= $block->escapeUrl($block->getSaleableItem()->getProductUrl()) ?>" class="minimal-price-link">
+<?php if ($block->showMinimalPrice()) : ?>
+    <?php if ($block->getUseLinkForAsLowAs()) : ?>
+        <a href="<?= $escaper->escapeUrl($block->getSaleableItem()->getProductUrl()) ?>" class="minimal-price-link">
             <?= /* @noEscape */ $block->renderAmountMinimal() ?>
         </a>
-    <?php else :?>
+    <?php else : ?>
         <span class="minimal-price-link">
             <?= /* @noEscape */ $block->renderAmountMinimal() ?>
         </span>
-    <?php endif?>
+    <?php endif ?>
 <?php endif; ?>

@@ -1,14 +1,14 @@
 :root {
 
 	@media (min-width:768px) {
-		--itemPadding:0 10px;
+		--itemPadding: 0 10px;
 
 
 	}
 
 	@media (max-width:767px) {
 
-		--itemPadding:0 10px;
+		--itemPadding: 0;
 
 	}
 
@@ -29,6 +29,13 @@
 		z-index         : 0;
 		clip-path       : polygon(100% 17%, 100% 100%, 0 100%, 0 200px);
 	}
+
+	padding-top:20px !important;
+
+	h1,
+	h2 {
+		margin-bottom: 20px !important;
+	}
 }
 
 
@@ -45,7 +52,7 @@
 	width           : 100%;
 	height          : auto;
 	background-color: @grey;
-	padding         : 60px 0 0 0;
+	padding         : 100px 0 0 0;
 
 
 
@@ -103,9 +110,11 @@
 
 	.product-info,
 	.product-item-info {
-		background-color: @white;
-		padding         : 25px 25px 35px 25px;
-		border          : 1px solid #eee;
+		background-color  : @white;
+		padding           : 10px;
+		border            : 1px solid #eee;
+		display           : grid;
+		grid-template-rows: max-content;
 
 
 		@media @desktop {
@@ -114,26 +123,39 @@
 
 		p {
 			margin-bottom: 0;
-			margin-top   : 20px;
+			margin-top   : 5px;
 			font-size    : 10px;
 		}
 
 		.product-item-name {
-			min-height:80px !important;
+			min-height: 60px !important;
+
+			@media (min-width:1152px) {
+				font-size:14px;
+				line-height:18px;
+			}
 		}
+
+
+
+
 
 		.item-inner,
 		.product-item-inner {
 
-			border-top : 1px solid grey;
-			padding-top: 20px;
-			margin-top : 10px;
-			padding-left:0px !important;
+			border-top    : 1px solid grey;
+			padding-top   : 0;
+			margin-top    : 5px;
+			padding-left  : 0px !important;
+			display       : grid;
+			grid-auto-rows: 60px 60px;
+			;
 
 			.special-price {
 
 				.price-label {
-					display:none;}
+					display: none;
+				}
 
 			}
 
@@ -152,26 +174,49 @@
 				}
 
 				.old-price {
+					display    : inline-flex;
+					gap        : 0.3rem;
+					align-items: center;
+					position   : relative;
+
+					.price-container {
+						display: flex;
+						gap    : 0.3rem;
+						
+						@media (max-width:460px) {
+							flex-direction:column !important;
+							align-items:center;
+						}
+
+						.price-including-tax {
+
+							&:after {
+								content:none !important;
+								font-size: 10px;
+							}
+						}
+					}
 
 					span {
-
 						&.price-label {
-							font-size: 12px;
-							display:block;
-							margin-top:10px;
-
+							font-size  : 13px;
+							text-transform:uppercase;
+							display    : block;
+							font-weight: 600;
+							color:#7d7d7d;
+							font-family: "AxiformaSemiBold";
 						}
 					}
 
 					text-decoration:none;
-				
 
 					.price {
-						font-size: 18px !important;
+						font-size: 13px !important;
+						color    :#7d7d7d;
 					}
 
 					.vatstatus {
-						font-size     : 14px;
+						font-size     : 12px;
 						line-height   : 10px;
 						color         : #7d7d7d;
 						font-family   : 'Helvetica';
@@ -181,95 +226,122 @@
 					}
 
 					.price-wrapper {
-						
-						font-size:unset;
+
+						font-size: unset;
+						display:flex;
 
 						&.price-excluding-tax {
 
 							&:after {
 
-								content: attr(data-label);
-								font-size: 14px;
-								line-height: 10px;
-								color: #7d7d7d;
-								font-family: 'Helvetica';
+								content       : none;
+								font-size     : 10px;
+								line-height   : 10px;
+								color         : #7d7d7d;
+								font-family   : 'Helvetica';
 								text-transform: uppercase;
-								margin-left: 5px;
+								margin-left   : 5px;
 
 							}
 						}
 
 
 						.price {
-							position:relative;
+							position: relative;
+
 							@media (max-width:420px) {
-								display:flex;
-								flex-direction:column;
-								align-items:center;
-								justify-content:center;
+								display        : flex;
+								flex-direction : column;
+								align-items    : center;
+								justify-content: center;
 
 								span {
-									margin-top:10px;
+									margin-top: 10px;
 								}
 
 							}
 
-													
 
-							&:after {
-								content:'';
-								width:100%;
-								height:2px;
-								background:black;
-								display:block;
-								position:absolute;
-								left:0px;
-								top:50%;
-								transform:translateY(-50%);
-							}
+
 						}
+					}
+
+					&:after {
+						content   : '';
+						width     : 100%;
+						height    : 1px;
+						background: @red;
+						display   : block;
+						position  : absolute;
+						left      : 0px;
+						top       : 50%;
+						transform : translateY(-50%);
 					}
 				}
 			}
 
 			a {
 				&.minimal-price-link {
-					display:none;
+					display: none;
 				}
 
 				&.product-item-link {
-				display       : block;
-				width         : 100%;
-				color         : @red;
-				background    : white;
-				font-size     : 14px;
-				padding       : 10px 5px;
-				text-align    : center;
-				margin-top    : 16px;
-				border        : solid 1px @red;
-				transition    : all 0.3s;
-				text-transform: uppercase;
+					display       : block;
+					width         : 100%;
+					color         : @red;
+					background    : white;
+					font-size     : 14px;
+					padding       : 10px 5px;
+					text-align    : center;
+					margin-top    : 16px;
+					border        : solid 1px @red;
+					transition    : all 0.3s;
+					text-transform: uppercase;
 
-				&:hover {
-					text-decoration: none;
-					background     : @red;
-					color          : white;
+					&:hover {
+						text-decoration: none;
+						background     : @red;
+						color          : white;
+					}
 				}
-			}
 
 			}
 
 			.normal-price {
-				margin-top:-2.3rem;
-				display:block;
-				margin-bottom:2.8rem;
+				//	margin-top:-2.3rem;
+				display         : block;
+				//	margin-bottom:2.8rem;
+			
+				.price-container {
+					display:flex;
+					gap:0.3rem;
+					align-items:center;
+
+					@media (max-width:460px) {
+						flex-direction:column !important;
+						align-items:center;
+					}
+
+					.price-wrapper {
+						// margin-top:0px;
+					}
+				}
+			
+			}
+
+			.stock {
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+				height         : 44px;
+				margin-top     : 16px;
 			}
 
 		}
 
 		div {
 			&[class^="swatch-opt"]:empty {
-				display:none;
+				display: none;
 			}
 		}
 
@@ -334,4 +406,3 @@
 	}
 }
 
-/* custom vat suffix */

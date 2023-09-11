@@ -642,7 +642,7 @@
         content: "";
         display: block;
         position: absolute;
-        top: 30px;
+        top: 78%;
         right: 30px;
         background-image: url('../images/enlarge-icon.png');
         background-repeat: no-repeat;
@@ -1159,4 +1159,116 @@
 .amcform-button.-default:focus {
     outline: 0!important;
     box-shadow: none!important;
+}
+
+/* custom price layout */
+
+body {
+
+	&.catalog-product-view {
+
+		.product-info-price {
+
+			.price-box {
+                padding-top:5px;
+
+				&.price-final_price {
+
+
+					display:flex;
+					flex-direction:column;
+
+					span {
+
+						&.old-price {
+							order:1;
+                            position:relative;
+                            display:inline-flex;
+                            align-items:center;
+                            justify-content:flex-start;
+                            gap:0.15em;
+                            text-decoration:none !important;
+                            margin:0 auto 0 0;
+
+                            &:after {
+
+                                content:"";
+                                height:1px;
+                                width:100%;
+                                display:block;
+                                position:absolute;
+                                top:50%;
+                                left:0;
+                                transform:translateY(-50%);
+                                background:#7d7d7d;
+
+                            }
+
+
+                            .price-wrapper {
+                                &:after {
+                                    content:none;
+                                }
+                            }
+
+
+
+                            &:before {
+                                content:"WAS";
+                                font-size:13px;
+                                color:rgb(125,125,125);
+                                font-weight:600;
+                                
+                            }
+
+
+                            span {margin-left:0px;
+                                margin:0px !important;
+                            width:unset;
+                                font-size:13px;
+                                font-weight:600px;
+                                color:rgb(125,125,125);
+
+                                & > * {font-size:13px !important;
+                                font-weight:normal;}
+                        
+                        }
+
+                        }
+
+						&.special-price {
+                            
+							order:2;
+
+                            .price {color:@red !important}
+							
+						}
+
+                        &.saving {
+                            order:3;
+                            margin:0px;
+                            display:flex;
+                            gap:0.25rem;
+
+                            span {
+                                color:@red;
+                                font-size:16px;
+                            }
+                        }
+
+					}
+
+
+				}
+
+                
+
+			}
+
+		}
+
+
+
+	}
+
 }

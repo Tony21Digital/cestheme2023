@@ -46,7 +46,7 @@ use Magento\Framework\App\Action\Action;
                                <p><strong>SKU:</strong> <?= $escaper->escapeHtml($_item->getSku()) ?></p>
                                     <div class="item-inner">
                                     <?= $block->getProductPriceHtml($_item, $type) ?>
-                                              <a href="<?= $escaper->escapeUrl($block->getProductUrl($_item)) ?>">View Product</a>
+                                              <a class="product-item-link" href="<?= $escaper->escapeUrl($block->getProductUrl($_item)) ?>">View Product</a>
                                     </div>
 
                             </div>

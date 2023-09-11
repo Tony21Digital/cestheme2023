@@ -40,7 +40,7 @@
         <!-- <move element="ammenu.logo" destination="header.logos" /> -->
 
         <!-- move main navigation into header-actions container -->
-        <move element="navigation.sections" destination="header-actions" after="-"/>
+        <move element="navigation.sections" destination="header-wrapper" after="-"/>
 
         <referenceContainer name="action-links">
             <container name="customer-actions" label="customeractions" as="customer_actions" htmlTag="div" htmlClass="customer-actions">

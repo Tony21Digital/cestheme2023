@@ -13,7 +13,8 @@ $showheader = (bool) $this->getData('showheader');
 $_catHelper = $block->getLayout()->createBlock("TwentyOneDigital\HelperModule\Block\CategoryHelper");
 $_currentCatId = ($_catHelper->getCategoryId()) ?: $this->getData('parentcatid');
 $_childCats = $_catHelper->getCategories($_currentCatId);
-$findOutMoreUrl = (string) ($this->getData('link')) ?: $_catHelper->getCategoryUrl($_currentCatId); 
+$findOutMoreUrl = (string) ($this->getData('link')) ?: $_catHelper->getCategoryUrl($_currentCatId);
+$buttonText = (string) ($this->getData('buttontext')) ?: "Shop Now";
 
 ?>
 <section id="clearance-block">
@@ -41,7 +42,7 @@ $findOutMoreUrl = (string) ($this->getData('link')) ?: $_catHelper->getCategoryU
     ?>
         <footer>
             <div class="corner-btn--red"><a href="<?= $findOutMoreUrl ?>">
-                    <span></span>Shop Now</a></div>
+                    <span></span><?= $buttonText ?></a></div>
         </footer>
     <?php
     endif;
