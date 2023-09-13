@@ -1,50 +1,74 @@
+:root {
+
+    @media (max-width:767px) {
+        --navPos   : 38%;
+        --navWidth : 35px;
+        --navHeight: 35px;
+        --top      : 90%;
+
+
+    }
+
+    @media (min-width:768px) {
+
+        --navPos   : 50px;
+        --navWidth : 40px;
+        --navHeight: 40px;
+        --top: 50%;
+
+    }
+
+
+
+}
+
 .homepage-hero {
 
+    .slick-prev {
+        left         : var(--navPos) !important;
+        background   : @red  !important;
+        width        : var(--navWidth);
+        height       : var(--navHeight);
+        display      : block;
+        border-radius: 50%;
+        top:var(--top);
+
+        &:before {
+            content            : "";
+            display            : block;
+            color              : white;
+            width              : 100%;
+            height             : 100%;
+            background-image   : url(../images/icons/white-arrow-prev.svg);
+            background-size    : 25%;
+            background-position: center;
+            background-repeat  : no-repeat;
+
+        }
+    }
+
+    .slick-next {
+        right        : var(--navPos)  !important;
+        background   : @red  !important;
+        width        : 40px;
+        width        : var(--navWidth);
+        height       : var(--navHeight);
+        border-radius: 50%;
+        top:var(--top);
+
+        &:before {
+            content            : "";
+            display            : block;
+            color              : white;
+            width              : 100%;
+            height             : 100%;
+            background-image   : url(../images/icons/white-arrow-next.svg);
+            background-size    : 25%;
+            background-position: center;
+            background-repeat  : no-repeat;
+
+        }
+    }
 
 
-     
-            .slick-prev {
-                left: 50px !important;
-                background:@red !important;
-                width:40px;
-                    height:40px;
-                display:block;
-                border-radius:50%;
-                
-                &:before {
-                    content:"";
-                    display:block;
-                    color:white;width:100%;
-                    height:100%;
-                    background-image:url(../images/icons/white-arrow-prev.svg);
-                    background-size:25%;
-                    background-position:center;
-                    background-repeat:no-repeat;
-                    
-                }
-            }
-
-            .slick-next {
-                right: 50px !important;
-                background:@red !important;
-                width:40px;
-                height:40px;
-            display:block;
-            border-radius:50%;
-            
-            &:before {
-                content:"";
-                display:block;
-                color:white;
-                width:100%;
-                height:100%;
-                background-image:url(../images/icons/white-arrow-next.svg);
-                background-size:25%;
-                background-position:center;
-                background-repeat:no-repeat;
-                
-            }
-            }
-        
-    
 }

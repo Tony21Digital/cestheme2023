@@ -850,13 +850,26 @@ div {
                
                
                     &.clearance {
+                        background:@red;
+                        transition:all 0.3s;
                         a {
 
                             span {
-                            color:@red;
+                            color:@white;
                             }
                         }
 
+                    }
+
+                    &:hover {
+                        background:@white;
+                    
+                        a {
+                            span {
+                                color:@red;
+                            }
+                        }
+                    
                     }
                
                 }
