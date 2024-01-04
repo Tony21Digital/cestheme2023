@@ -83,11 +83,26 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 
 
                         <?php if ($_product->isSaleable()) :?>
-                                        <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                        
+                            <?php if ($_product->getTypeId() === 'simple'): ?>
+                                <form id="product_addtocart_form" data-product-sku="<?= $_product->getSku() ?>"
+                                action="<?= $this->getAddToCartUrl($_product)?>">
+                                <input type="hidden" name="product" value="<?= $_product->getID(); ?>" />
+                                <input type="hidden" name="item" value="<?= $_product->getID(); ?>" />
+                                <input type="hidden" name="form_key" value="<?= $block->getFormKey();?>" />
+                                            <button class="product-item-link action primary tocart" type="submit" title="<?= /* @escapeNotVerified */ __('Add To Basket') ?>" >
+                                                <?= /* @escapeNotVerified */ __('Add To Basket') ?>
+                                        </a>
+                            </form>
+
+                            <?php else: ?>
+
+                            
+                            <?php $postParams = $block->getAddToCartPostParams($_product); ?>
                                             <a class="product-item-link" href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
                                                 <?= /* @escapeNotVerified */ __('View Product') ?>
-                                         </a>
-                                            
+                                        </a>
+                             <?php endif; ?>               
                                         
                                     <?php else :?>
                                         <?php if ($_product->isAvailable()) :?>

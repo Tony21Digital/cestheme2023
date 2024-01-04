@@ -296,7 +296,7 @@
 					color         : @white;
 					background    : @red;
 					font-size     : 14px;
-					padding       : 10px 5px;
+					padding       : 11px 5px;
 					text-align    : center;
 					margin-top    : 16px;
 					border        : solid 1px @red;
@@ -344,6 +344,32 @@
 
 			[data-price-type="finalPrice"] {
 				margin-top:5px;
+			}
+
+			button {
+
+				&.product-item-link {
+					display       : block;
+					width         : 100%;
+					color         : @white;
+					background    : @red;
+					font-size     : 14px;
+					padding       : 11px 5px;
+					text-align    : center;
+					margin-top    : 16px;
+					border        : solid 1px @red;
+					transition    : all 0.3s;
+					text-transform: uppercase;
+					height:unset !important;
+					font-weight:normal !important;
+
+					&:hover {
+						text-decoration: none;
+						background     : @white;
+						color          : @red;
+					}
+				}
+
 			}
 
 		}
