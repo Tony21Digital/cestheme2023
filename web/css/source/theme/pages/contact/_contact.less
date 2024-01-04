@@ -1,0 +1,244 @@
+.contact-index-index {
+
+    .columns {
+        width: 100%;
+        max-width: 100%!important;
+    }
+
+    .column.main {
+        padding-bottom: 0;
+    }
+
+    .intro-block {
+        margin-bottom: 60px;
+    }
+}
+
+.contact-index-index {
+
+    .page-title-wrapper {
+        margin: 60px 0 30px 0;
+        text-align: center;
+
+        h1 {
+            color: @red;
+            font-family: @axiformabook;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-bottom: 60px;
+
+    @media @tablet {
+        flex-direction: row;
+    }
+}
+
+.contact-form {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    background-color: @red;
+
+    @media @desktop {
+        width: 50%;
+        padding: 60px 60px 60px 10%;
+    }
+
+    label {
+        display: block;
+        position: relative;
+        width: 100%!important;
+        margin-bottom: 10px !important;
+        color: @white !important;
+        text-align: left!important;
+        font-family: @axiformabook!important;
+        font-weight: normal!important;
+
+        &:not(:first-of-type) {
+            margin-top: 15px;
+        }
+
+        &:after {
+            color: @white!important;
+        }
+    }
+
+    .field {
+        margin-bottom: 10px!important;
+
+        &:last-of-type {
+            color: @white;
+
+            a {
+                color: @white;
+                text-decoration: underline;
+
+                &:visited {
+                    text-decoration: underline;
+                    color: @white;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .fieldset {
+        margin-bottom: 0!important;
+    }
+
+    .form.contact {
+        min-width: 100%!important;
+        width: 100%;
+    }
+
+    input {
+        &:not([type="checkbox"]) {
+            width: 100%;
+            height: 50px;
+            border: 0;
+        }
+    }
+
+    input[tpe="checkbox"] {
+        margin: 0 10px 0 0;
+    }
+
+    textarea {
+        width: 100%;
+        height: 150px;
+        resize: none;
+        margin-bottom: 15px;
+        border: 0;
+    }
+
+    .actions-toolbar {
+        margin-left: 0!important;
+        margin-top: 20px!important;
+    }
+
+    button[type="submit"] {
+        display: inline-block;
+        position: relative;
+        width: auto;
+        min-width: 150px;
+        height: 60px;
+        background-color: transparent;
+        border: 1px solid @white;
+        color: @white;
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 16px;
+        transition: all .3s ease;
+
+        &:hover {
+            background-color: @white;
+            border: 1px solid @white;
+            color: @red;
+        }
+
+        span {
+            font-weight: normal!important;
+            font-family: @global-font;
+        }
+    }
+
+    .field-error, div.mage-error[generated] {
+        color: @white;
+        font-size: 12px;
+    }
+}
+
+.contact-methods {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    background-color: @white;
+
+    @media @tablet {
+        width: 50%;
+        padding: 60px 10% 60px 60px;
+    }
+
+    ul {
+        display: block;
+        position: relative;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    li {
+        display: block;
+        position: relative;
+        width: 100%;
+        margin-bottom: 30px;
+
+        a {
+            color: @darkgrey;
+        }
+    }
+
+    .method-title {
+        display: block;
+        position: relative;
+        width: 100%;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-family: @axiformabook;
+        color: @red;
+    }
+
+    address {
+        font-style: normal;
+        color: @darkgrey;
+        line-height: 22px;
+    }
+
+    iframe {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+}
+
+.google-map {
+
+    a {
+        text-transform: uppercase;
+        color: @black;
+
+        &:hover {
+            &:before {
+                background-color: @black;
+            }
+        }
+    }
+
+    .readmore {
+        position: relative;
+        padding-left: 38px;
+        font-family: @axiformabook;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 47%;
+            width: 30px;
+            height: 1px;
+            background-color: @red;
+        }
+    }
+}

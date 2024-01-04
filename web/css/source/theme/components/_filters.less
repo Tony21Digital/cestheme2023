@@ -1,0 +1,52 @@
+/* Custom swatch filter styling */
+
+:root {}
+
+.filter-options-content {
+
+    .swatch-attribute {
+
+        .swatch-attribute-options {
+            display              : grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap                  : 5px;
+
+            &:before {
+                content: none;
+            }
+
+            a {
+                &.swatch-option-link-layered {
+
+                    div {
+                        border-radius: 50%;
+                        margin       : auto;
+                        float        : none;
+                        width        : 90%;
+                        aspect-ratio : 1/1;
+                        outline:solid 1px rgb(102,102,102);
+                        border:solid 3px white;
+
+
+                        max-width: unset;
+                        min-width: unset;
+                        height   : unset;
+                        transition: all 0.3s;
+
+                    
+                    &:hover {
+                        outline:solid 1px @red;
+                    }
+                    
+                    }
+
+
+                }
+
+            }
+        }
+
+    }
+
+
+}

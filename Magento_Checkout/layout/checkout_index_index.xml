@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+
+    <referenceBlock name="minicart" remove="false" />
+    <referenceContainer name="header.panel" remove="false" />
+    <referenceBlock name="top.search" remove="false" />
+
+    <referenceBlock name="catalog.topnav" remove="false"/>
+    <referenceContainer name="footer-container"  remove="false"/>
+
+    <referenceBlock name="category-bottom" remove="true" />
+    <referenceBlock name="logo" remove="false"/>
+
+    <referenceContainer name="page.top">
+      <block class="Magento\Cms\Block\Block" name="key.messages" before="breadcrumbs">
+        <arguments>
+            <argument name="block_id" xsi:type="string">key_messages</argument>
+        </arguments>
+      </block>
+    </referenceContainer>
+
+</body>
+</page>

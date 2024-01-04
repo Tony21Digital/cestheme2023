@@ -1,0 +1,48 @@
+.mob-prod--scrollto {
+    display: none;
+
+    @media(max-width: 767px) {
+        display: block;
+        text-align: center;
+        color: @red;
+        font-size: 12px;
+        line-height: 12px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+
+        &:visited {
+            color: @red;
+            text-decoration: underline;
+        }
+    }
+}
+
+.product.media {
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+
+    @media @tablet {
+        margin-top: 0;
+    }
+}
+
+.gallery-placeholder {
+    border: 1px solid #ccc!important;
+}
+
+.fotorama__nav--dots {
+    display: none;
+    visibility: hidden;
+}
+
+.fotorama__nav-wrap--horizontal {
+    display: none!important;
+    visibility: hidden;
+
+    @media @tablet {
+        display: block!important;
+        visibility: visible;
+    }
+}

@@ -1,0 +1,156 @@
+/**
+ *
+ **/
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+ol.post-list,
+ol.comment-list { list-style: none; padding: 0; margin: 0; }
+
+/* General Post Styles */
+.post-list li:after { content: ' '; clear: both; display: block; }
+.post-list li { /*display: inline-block; width: 48%; vertical-align: top;*/ }
+.post-entry { overflow: hidden; margin: 0 0 20px; }
+.post-entry p { font-size: 14px; line-height: 14px; color: #666; text-transform: uppercase; }
+.post-entry h2 { line-height: 26px; margin-bottom: 16px; }
+.post-entry h2 a { color: #db1e33; text-transform: uppercase; font-size: 22px; line-height: 26px; font-family: "AxiformaBook", "Helvetica Neue", Helvetica, Arial, Helvetica, Geneva, sans-serif;}
+.post-entry h2:hover a {text-decoration: underline; color: #db1e33; }
+.post-image { margin: 0 0 30px; overflow: hidden; }
+.post-image a { display: inline-block; width: 100%; }
+.post-image img { width: 100%; height: auto; }
+.post-list .post-image { max-height: 300px; }
+.post-meta { clear: both; margin: 0 0 20px; text-align: left; }
+.post-meta .post-meta-item { display: inline-block; margin-right: 10px; color: #666;}
+.post-meta .post-meta-item a { color: #db1e33; }
+.post-readmore { margin-top: 10px; }
+.post-entry iframe { max-width: 100%; }
+.post-excerpt { font-size: 14px; line-height: 20px; color: #666; padding-right: 20px;}
+.post-list-item h2 { line-height: 26px; margin-bottom: 16px; }
+.post-list-item h2 a { color: #db1e33; text-transform: uppercase; font-size: 22px; line-height: 26px; font-family: "AxiformaBook", "Helvetica Neue", Helvetica, Arial, Helvetica, Geneva, sans-serif;}
+
+/* Comments */
+.comment-list-item { margin: 0 0 20px; }
+.comment-list.children { margin-top: 20px; }
+.comment-image { float: left; margin: 0 10px 10px 0; }
+.comment-author { font-weight: bold; display: block; }
+.comment-entry { clear: both; margin: 0 0 20px; }
+
+/* Widgets */
+.wp-sidebar { position: relative; } /* Fixes Porto issue where sidebar links aren't clickable */
+.block-blog .block-title { margin-bottom: 10px; padding: 20px 10px 15px 20px; background-color: #f2f2f2; }
+.block-blog .block-title > strong { font-size: 16px; line-height: 16px; font-weight: 600; text-transform: uppercase;}
+.block-blog ul, .block-blog ol { list-style: none; margin: 0; padding: 0; }
+.block-blog-cloud li { display: inline; margin: 0; }
+.block-blog ul li, .block-blog ol li { margin-bottom: 10px; }
+.block-blog-categories ul.level1 { margin-top: 1rem; }
+.block-blog .block-content { padding: 20px; }
+#wp-category-list li a { font-size: 14px; font-family: sans-serif; color: #db1e33; }
+#wp-category-list li a:hover { color: #db1e33; }
+.block-recent-posts li a { font-size: 14px; font-family: sans-serif; color: #db1e33; }
+.block-recent-posts li a:hover { color: #db1e33; }
+.post-content p img { width: 100%; height: auto; }
+.post-content p { text-transform: none; font-size: 16px; line-height: 20px; color: #666; }
+.post-content p a { color: #666; text-decoration: underline; }
+.post-content p a:hover { text-decoration: none; }
+.post-content b { font-weight: normal; color: #666; }
+.post-content strong { font-weight: normal; color: #666; }
+.post-content h2 {font-family: "AxiformaBook", "Helvetica Neue", Helvetica, Arial, Helvetica, Geneva, sans-serif; text-transform: uppercase; color: #db1e33; font-size: 20px; line-height: 26px; margin-bottom: 20px; }
+.post-content h3 {font-family: "AxiformaBook", "Helvetica Neue", Helvetica, Arial, Helvetica, Geneva, sans-serif; text-transform: uppercase; color: #db1e33; font-size: 20px; line-height: 26px; margin-bottom: 20px; }
+.post-content h3 span { color: #db1e33; font-size: 20px; line-height: 26px; }
+.post-content h4 { color: #db1e33; font-size: 20px; line-height: 26px; margin-bottom: 20px; }
+.post-content ul { margin-bottom: 20px; }
+.post-content li { font-size: 16px; list-style-type: disc; color: #666; margin-bottom: 10px; }
+.post-content li span { font-size: 16px; }
+.post-content li strong { font-weight: 600; }
+.post-meta-item { font-size: 14px; }
+
+.wordpress-post-view .page-title, .wordpress-term-view .page-title { color: #db1e33; font-size: 26px; line-height: 36px; text-transform: uppercase; margin-bottom: 20px; font-family: "AxiformaBook", "Helvetica Neue", Helvetica, Arial, Helvetica, Geneva, sans-serif; }
+
+.wordpress-post-view .columns { padding-left: 15px!important; padding-right: 15px!important; }
+
+.wordpress-user-view .page-title-wrapper { width: 100%; text-align: center; border-bottom: 1px solid #eee; margin-bottom: 40px; max-width: 1366px; margin-left: auto; margin-right: auto; }
+
+.wordpress-user-view .page-title { color: #db1e33; font-size: 26px; line-height: 36px; text-transform: uppercase; margin-bottom: 20px; font-family: "AxiformaBook", "Helvetica Neue", Helvetica, Arial, Helvetica, Geneva, sans-serif; }
+
+.wordpress-user-view .columns { padding-left: 15px!important; padding-right: 15px!important; }
+
+.shortcode-product {}
+.shortcode-product .products { text-align: left; list-style: none; }
+.shortcode-product .products > li { display: inline-block; width: 24%; text-align: center; }
+
+/* Post List Grid */
+.post-list.grid {}
+.post-list.grid li { display: inline-block!important; width: 48%!important; vertical-align: top; margin-right: 1%; }
+.post-list.grid li:nth-of-type(2n) { margin-right: 0; }
+
+.wordpress-posttype-view .pager { margin-top: 40px; }
+
+.wordpress-posttype-view .columns { margin-top: 40px!important; padding-left: 15px; padding-right: 15px;}
+
+.wordpress-post-view .columns { margin-top: 40px!important; }
+
+.wordpress-term-view .columns { margin-top: 40px!important; padding-left: 15px; padding-right: 15px; }
+
+@media (min-width: 768px) {
+
+	.wordpress-posttype-view.page-layout-2columns-right .column.main {
+		width: 74%!important;
+		margin-right: 1%!important;
+	}
+
+	.wordpress-post-view.page-layout-2columns-right .column.main {
+		width: 74%!important;
+		margin-right: 1%!important;
+	}
+
+	.wordpress-term-view.page-layout-2columns-right .column.main {
+		width: 74%!important;
+		margin-right: 1%!important;
+	}
+}
+
+@media (min-width: 768px) {
+
+	.wordpress-posttype-view.page-layout-2columns-right .sidebar-main {
+		width: 25%!important;
+	}
+
+	.wordpress-post-view.page-layout-2columns-right .sidebar-main {
+		width: 25%!important;
+	}
+
+	.wordpress-term-view.page-layout-2columns-right .sidebar-main {
+		width: 25%!important;
+	}
+
+}
+
+@media (max-width: 767px) {
+
+	.block-blog-categories {
+		margin-top: 40px;
+	}
+
+	.wordpress-user-view .page-title { margin-top: 40px; }
+
+	.post-entry p { font-size: 14px; line-height: 20px; }
+
+	.post-entry p span { font-size: 16px; line-height: 22px; }
+
+	.post-entry p a { font-size: 16px; line-height: 22px; }
+
+	.post-entry h2 { line-height: 22px; }
+
+	.post-entry h2 a { font-size: 18px; line-height: 26px; }
+
+	.post-excerpt { font-size: 12px; line-height: 18px; }
+
+	.wordpress-posttype-view .toolbar-amount, .wordpress-term-view .toolbar-amount, {
+		text-align: center;
+		margin-bottom: 10px!important;
+	}
+}

@@ -1,0 +1,80 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) :?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()) :?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?= $block->escapeHtml(__('Quantity')) ?></span></label>
+            <div class="addto-wrapper">
+              <div class="control">
+                <input type="button" value="-" class="qtyminus" field="qty">
+                  <input type="number"
+                         name="qty"
+                         id="qty"
+                         min="0"
+                         value="<?= $block->getProductDefaultQty() * 1 ?>"
+                         title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                         class="input-text qty"
+                         data-validate="<?= $block->escapeHtmlAttr(json_encode($block->getQuantityValidators())) ?>"
+                         />
+                <input type="button" value="+" class="qtyplus" field="qty">
+              </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button" disabled>
+                <span><?= $block->escapeHtml($buttonTitle) ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<!-- <div class="product-enquiry-form">
+</div> -->
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
+<?php 
+if ($_product->getTypeId() !== 'grouped'):?>
+<script>
+  require(['jquery', 'jquery/ui'], function($){
+     $(".qtyplus").click(function(e){
+      e.preventDefault();
+      let currentQuantity = $(".input-text.qty").val();
+      currentQuantity++;
+
+      if(currentQuantity){
+        $(".input-text.qty").val(currentQuantity.toString());
+      }
+     });
+
+     $(".qtyminus").click(function(e){
+      e.preventDefault();
+      let currentQuantity = $(".input-text.qty").val();
+      currentQuantity--;
+
+      if(currentQuantity && currentQuantity != 0){
+        $(".input-text.qty").val(currentQuantity.toString());
+      }
+     });
+  });
+</script>
+<?php endif; ?>

@@ -1,0 +1,38 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /* @var $block \Magento\Catalog\Block\Product\View\AbstractView */?>
+<?php $_product = $block->getProduct() ?>
+
+
+<div class="instock--delivery">
+
+    <?php
+    if ($this->helper('Magento\Catalog\Helper\Output')->productAttribute($block->getProduct(), $block->getProduct()->getData('delivery_time'), 'delivery_time')):
+    ?>
+    <!-- needs to pull in new attribute -->
+    <p>Delivered in <span><?= $block->getProduct()->getData('delivery_time') ?></span></p>
+    <?php endif ?>
+
+    <?php if ($block->displayProductStockStatus()) :?>
+        <?php if ($_product->isAvailable()) :?>
+            <div class="stock available" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                <span><?= $block->escapeHtml(__('In stock')) ?></span>
+            </div>
+        <?php else :?>
+            <div class="stock unavailable" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                <span><?= $block->escapeHtml(__('Out of stock')) ?></span>
+            </div>
+        <?php endif; ?>
+
+        <!-- POA Label -->
+        <?php if ($_product->getData('page_layout') == "enquiry") :?>
+            <div class="poa">POA</div>
+        <?php endif; ?>
+    <?php endif; ?>
+</div>
+
+<div id="mobile-scrollto"></div>

@@ -1,0 +1,68 @@
+.global-breadcrumb {
+	display: none;
+	position: relative;
+	width: 100%;
+
+	@media @tablet {
+		display: block;
+		padding: 25px 0;
+	}
+
+	.cms-wilcoflex & {
+		display: none;
+	}
+
+	ul {
+		display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  	max-width: @max-width;
+  	padding-left: @container-padding;
+  	padding-right: @container-padding;
+  	margin-right: auto;
+  	margin-left: auto;
+
+  	@media @xldesktop {
+    	max-width: @max-width--large;
+  	}
+  }
+
+
+  li {
+  	display: inline-block;
+  	position: relative;
+  	width: auto;
+    font-family: @axiformabook;
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 0!important;
+
+    @media @desktop {
+      font-size: 12px;
+    }
+
+  	&:not(:last-of-type) {
+	  	&:after {
+	  		content: "/";
+	  		display: inline-block;
+	  		position: relative;
+	  		margin: 0 5px;
+	  	}
+  	}
+  }
+
+  strong {
+  	font-weight: normal;
+  }
+
+  a {
+  	color: #999;
+
+  	&:hover {
+  		color: @red;
+  		text-decoration: underline;
+  	}
+  }
+}

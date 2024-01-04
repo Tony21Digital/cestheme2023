@@ -1,0 +1,7 @@
+<?php 
+  if ($this->helper('Magento\Catalog\Helper\Output')->productAttribute($block->getProduct(), $block->getProduct()->getData('product_age_warning'), 'product_age_warning')):
+?>
+<div class="age-notice">
+  <p>You must be aged 18+ to purchase any knives or blades. Age verification will be required on delivery.</p>
+</div>
+<?php endif ?>
