@@ -9,7 +9,12 @@
     <update handle="default_head_blocks"/>
     <body>
         <referenceContainer name="header.panel">
-            <block class="Magento\Framework\View\Element\Template" name="header.panel.quicklink" as="headerPanelQuicklink" template="Magento_Theme::header-quicklink.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="header.panel.quicklink" as="headerPanelQuicklink" template="Magento_Theme::header-quicklink.phtml">
+               
+            </block>
+            <container name="action-phone" label="actionphone" as="action_phone" htmlTag="div" htmlClass="header-phone" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="header.phone.link" as="headerPhoneLink" template="Magento_Theme::header-phone.phtml" />
+            </container>
         </referenceContainer>
 
         <referenceContainer name="header-wrapper">
@@ -42,6 +47,9 @@
         <!-- move main navigation into header-actions container -->
         <move element="navigation.sections" destination="header-wrapper" after="-"/>
 
+        <move element="tax.selector" destination="header.panel" as="tax_selector" after="-" />
+     
+
         <referenceContainer name="action-links">
             <container name="customer-actions" label="customeractions" as="customer_actions" htmlTag="div" htmlClass="customer-actions">
             </container>
@@ -51,9 +59,7 @@
             <container name="action-search" label="actionsearch" as="action_search" htmlTag="div" htmlClass="header-search">
             </container>
             <block class="Magento\Framework\View\Element\Template" name="mobile.nav.toggle" template="Magento_Theme::menu-toggle.phtml" before="action-phone" />
-            <container name="action-phone" label="actionphone" as="action_phone" htmlTag="div" htmlClass="header-phone" after="action-search">
-                <block class="Magento\Framework\View\Element\Template" name="header.phone.link" as="headerPhoneLink" template="Magento_Theme::header-phone.phtml" />
-            </container>
+          
             <container name="mobile-logo" label="mobilelogo" as="mobile_logo" htmlTag="div" htmlClass="mobile-logo" before="action-account">
                 <block class="Magento\Framework\View\Element\Template" name="header.mob.logo" as="headerMoblogo" template="Magento_Theme::mob-logo.phtml" />
             </container>
@@ -98,6 +104,7 @@
         </referenceContainer>
 
         <move element="form.subscribe" destination="newsletter.container" before="-"/>
+  
 
         <referenceContainer name="footer">
             <container name="footer-logo" label="footer-logo" as="footer_logo" htmlTag="div" htmlClass="footer-logo" before="footer_links">
