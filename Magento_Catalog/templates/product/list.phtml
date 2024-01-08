@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 use Magento\Framework\App\Action\Action;
 
 ?>
@@ -20,9 +22,11 @@ use Magento\Framework\App\Action\Action;
 $_productCollection = $block->getLoadedProductCollection();
 $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 ?>
-<?php if (!$_productCollection->count()) :?>
-    <div class="message info empty"><div><?= $block->escapeHtml(__('We can\'t find products matching the selection.')) ?></div></div>
-<?php else :?>
+<?php if (!$_productCollection->count()) : ?>
+    <div class="message info empty">
+        <div><?= $block->escapeHtml(__('We can\'t find products matching the selection.')) ?></div>
+    </div>
+<?php else : ?>
     <?= $block->getToolbarHtml() ?>
     <?= $block->getAdditionalHtml() ?>
     <?php
@@ -38,7 +42,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
         $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::FULL_VIEW;
     }
     $image = 'new_products_content_widget_grid';
-   
+
     /**
      * Position for actions regarding image size changing in vde if needed
      */
@@ -47,91 +51,91 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
     <div class="products wrapper <?= /* @noEscape */ $viewMode ?> products-<?= /* @noEscape */ $viewMode ?>">
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
-            <?php foreach ($_productCollection as $_product) :?>
-            <li class="item product product-item">
-                <div class="product-item-info" data-container="product-<?= /* @noEscape */ $viewMode ?>">
-                <a href="<?= $escaper->escapeUrl($block->getProductUrl($_product)) ?>" class="product-item-photo">
-                                <?= $block->getImage($_product, $image)->toHtml() ?>
-                            </a>
-                    <div class="product details product-item-details">
-                        <?php
+            <?php foreach ($_productCollection as $_product) : ?>
+                <li class="item product product-item">
+                    <div class="product-item-info" data-container="product-<?= /* @noEscape */ $viewMode ?>">
+                        <a href="<?= $escaper->escapeUrl($block->getProductUrl($_product)) ?>" class="product-item-photo">
+                            <?= $block->getImage($_product, $image)->toHtml() ?>
+                        </a>
+                        <div class="product details product-item-details">
+                            <?php
                             $_productNameStripped = $block->stripTags($_product->getName(), null, true);
-                        ?>
-                        <strong class="product name product-item-name">
-                              <a title="<?= $escaper->escapeHtmlAttr($_product->getName()) ?>"
-                                       href="<?= $escaper->escapeUrl($block->getProductUrl($_product)) ?>"
-                                       class="product-item-link">
-                                        <?= $escaper->escapeHtml($_product->getName()) ?>
-                                    </a>
+                            ?>
+                            <strong class="product name product-item-name">
+                                <a title="<?= $escaper->escapeHtmlAttr($_product->getName()) ?>" href="<?= $escaper->escapeUrl($block->getProductUrl($_product)) ?>" class="product-item-link">
+                                    <?= $escaper->escapeHtml($_product->getName()) ?>
+                                </a>
                             </strong>
 
-                        <!-- POA Label -->
-                        
-                        <?php if ($_product->isAvailable()) :?>
-                            <?= $block->getProductDetailsHtml($_product) ?>
-                        <?php endif; ?>
-                        <p><strong>SKU:</strong> <?= $escaper->escapeHtml($_product->getSku()) ?></p>
+                            <!-- POA Label -->
+
+                            <?php if ($_product->isAvailable()) : ?>
+                                <?= $block->getProductDetailsHtml($_product) ?>
+                            <?php endif; ?>
+                            <p><strong>SKU:</strong> <?= $escaper->escapeHtml($_product->getSku()) ?></p>
 
 
-                        <div class="product-item-inner">
+                            <div class="product-item-inner">
 
-                        <?php if ($_product->getData('poa_label') == 1 ) :?>
-                            <div class="poa">POA</div>
-                        <?php else :?>
-                            <?= /* @noEscape */ $block->getProductPrice($_product) ?>
-                        <?php endif ?>
+                                <?php if ($_product->getData('poa_label') == 1) : ?>
+                                    <div class="poa">POA</div>
+                                <?php else : ?>
+                                    <?= /* @noEscape */ $block->getProductPrice($_product) ?>
+                                <?php endif ?>
 
 
-                        <?php if ($_product->isSaleable()) :?>
-                                        
-                            <?php if ($_product->getTypeId() === 'simple'): ?>
-                                <form id="product_addtocart_form" data-product-sku="<?= $_product->getSku() ?>"
-                                action="<?= $this->getAddToCartUrl($_product)?>">
-                                <input type="hidden" name="product" value="<?= $_product->getID(); ?>" />
-                                <input type="hidden" name="item" value="<?= $_product->getID(); ?>" />
-                                <input type="hidden" name="form_key" value="<?= $block->getFormKey();?>" />
-                                            <button class="product-item-link action primary tocart" type="submit" title="<?= /* @escapeNotVerified */ __('Add To Basket') ?>" >
+                                <?php if ($_product->isSaleable()) : ?>
+
+                                    <?php if ($_product->getTypeId() === 'simple') : ?>
+                                        <form id="product_addtocart_form" data-product-sku="<?= $_product->getSku() ?>" action="<?= $this->getAddToCartUrl($_product) ?>">
+                                            <input type="hidden" name="product" value="<?= $_product->getID(); ?>" />
+                                            <input type="hidden" name="item" value="<?= $_product->getID(); ?>" />
+                                            <input type="hidden" name="form_key" value="<?= $block->getFormKey(); ?>" />
+                                            <fieldset class="list-product-actions">
+                                            <button class="product-item-link action primary tocart" type="submit" title="<?= /* @escapeNotVerified */ __('Add To Basket') ?>">
                                                 <?= /* @escapeNotVerified */ __('Add To Basket') ?>
-                                        </a>
-                            </form>
-
-                            <?php else: ?>
-
-                            
-                            <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                            </button>
                                             <a class="product-item-link" href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
                                                 <?= /* @escapeNotVerified */ __('View Product') ?>
                                         </a>
-                             <?php endif; ?>               
-                                        
-                                    <?php else :?>
-                                        <?php if ($_product->isAvailable()) :?>
-                                            <div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
-                                        <?php else :?>
-                                            <div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
-                                        <?php endif; ?>
+                                    </fieldset>
+                                        </form>
+
+                                    <?php else : ?>
+
+
+                                        <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                        <a class="product-item-link" href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
+                                            <?= /* @escapeNotVerified */ __('View Product') ?>
+                                        </a>
                                     <?php endif; ?>
 
-                       
-                            <?php if ($showDescription) :?>
-                                <div class="product description product-item-description">
-                                    <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-                                    <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>"
-                                       title="<?= /* @noEscape */ $_productNameStripped ?>"
-                                       class="action more"><?= $block->escapeHtml(__('Learn More')) ?></a>
-                                </div>
-                            <?php endif; ?>
+                                <?php else : ?>
+                                    <?php if ($_product->isAvailable()) : ?>
+                                        <div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+                                    <?php else : ?>
+                                        <div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+
+                                <?php if ($showDescription) : ?>
+                                    <div class="product description product-item-description">
+                                        <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                        <a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>" title="<?= /* @noEscape */ $_productNameStripped ?>" class="action more"><?= $block->escapeHtml(__('Learn More')) ?></a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
             <?php endforeach; ?>
         </ol>
     </div>
     <?= $block->getToolbarHtml() ?>
-    <?php if (!$block->isRedirectToCartEnabled()) :?>
+    <?php if (!$block->isRedirectToCartEnabled()) : ?>
         <script type="text/x-magento-init">
-        {
+            {
             "[data-role=tocart-form], .form.map.checkout": {
                 "catalogAddToCart": {
                     "product_sku": "<?= $block->escapeJs($_product->getSku()) ?>"
