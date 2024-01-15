@@ -6,9 +6,9 @@
 	--figElementWidth : 0 0 ~"calc(100%/2)";
 	--figElementMargin: 16px;
 	--figTransform: none;
+	--piLinkDisplay: block;
 
-	@media (min-width: 992px) and (max-width: 1598px),
-	(max-width:780px) {
+	@media (min-width: 992px) and (max-width: 1365px) {
 		--figFlexDirection: column;
 		--figElementWidth : 0 0 100%;
 		--figElementMargin: 0px;
@@ -16,6 +16,14 @@
 
 	}
 
+
+	@media (max-width:600px) {
+		--piLinkDisplay: none;
+		--figFlexDirection: column;
+		--figElementWidth : 0 0 100%;
+		--figElementMargin: 0px;
+		--figTransform: translateY(16px);
+	}
 
 	@media (min-width:768px) {
 		--itemPadding: 0 10px;
@@ -330,8 +338,8 @@
 					width         : 100%;
 					color         : @white;
 					background    : @red;
-					font-size     : 14px;
-					padding       : 11px 5px;
+					font-size     : 12px;
+					padding       : 13px 5px;
 					text-align    : center;
 					margin-top    : 16px;
 					border        : solid 1px @red;
@@ -394,7 +402,7 @@
 					button {
 
 						&.product-item-link {
-							display          : block;
+							display          : var(--piLinkDisplay);
 							//	width         : 100%;
 							color            : @white;
 							flex             : var(--figElementWidth);
