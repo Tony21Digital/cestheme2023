@@ -88,7 +88,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 
                                     <?php if ($_product->getTypeId() === 'simple') : ?>
                                      
-                                        <form id="product_addtocart_form" data-product-sku="<?= $_product->getSku() ?>" action="<?= $this->getAddToCartUrl($_product) ?>">
+                                        <form id="product_addtocart_form" class="category-link-add" data-product-sku="<?= $_product->getSku() ?>" action="<?= $this->getAddToCartUrl($_product) ?>">
                                             <input type="hidden" name="product" value="<?= $_product->getID(); ?>" />
                                             <input type="hidden" name="item" value="<?= $_product->getID(); ?>" />
                                             <input type="hidden" name="form_key" value="<?= $block->getFormKey(); ?>" />
@@ -96,7 +96,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
                                             <a class="product-item-link category-link-view-simple" href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
                                                 <?= /* @escapeNotVerified */ __('View Product') ?>
                                         </a>
-                                            <button class="product-item-link action primary tocart category-link-add" type="submit" title="<?= /* @escapeNotVerified */ __('Add To Basket') ?>">
+                                            <button class="product-item-link action primary tocart" type="submit" title="<?= /* @escapeNotVerified */ __('Add To Basket') ?>">
                                                 <?= /* @escapeNotVerified */ __('Add To Basket') ?>
                                             </button>
                                            
