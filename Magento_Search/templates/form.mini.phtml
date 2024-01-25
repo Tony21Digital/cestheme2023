@@ -22,7 +22,7 @@ $helper = $this->helper(\Magento\Search\Helper\Data::class);
                 "destinationSelector":"#search_autocomplete",
                 "minSearchLength":"<?= $block->escapeHtml($helper->getMinQueryLength()) ?>"}
             }'
-            type="text"
+            type="search"
             name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
             value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>"
             placeholder="<?= $block->escapeHtmlAttr(__('Search by product name or brand')) ?>"

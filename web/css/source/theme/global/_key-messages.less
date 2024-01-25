@@ -1,8 +1,23 @@
+:root {
+
+	@media (min-width:992px) {
+
+	--kmBg: @grey;
+	}
+
+	@media (max-width:991px) {
+		--kmBg: white;
+
+	}
+
+}
+
+
 .key-messages {
 	display: block;
 	width: 100%;
 	padding: 10px 0;
-	background-color: @grey;
+	background-color: var(--kmBg);
 	border-bottom: 1px solid @red;
 
 	@media @laptop {
@@ -100,7 +115,7 @@
 
 	li {
 		font-family: @axiformabook;
-		text-transform: uppercase;
+		text-transform: capitalize;
 		font-size: 12px;
 		line-height: 12px;
 
@@ -113,13 +128,13 @@
 	a {
 		color: @black;
 		font-family: @axiformabook;
-		text-transform: uppercase;
+		text-transform: capitalize;
 		font-size: 12px;
 		line-height: 12px;
 	}
 
 	strong {
-		font-family: @axiformabold;
+		font-family: @axiformabook;
 		font-size:12px;
 	}
 
