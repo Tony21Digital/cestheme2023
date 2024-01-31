@@ -78,6 +78,7 @@
                 htmlClass="header-contact" after="action-phone">
                 <block class="Magento\Framework\View\Element\Template" name="header.account.link"
                     as="headerAccountLink" template="Magento_Theme::header-account-link.phtml" />
+             
             </container>
             <container name="header-shop" label="headershop" as="header_shop" htmlTag="div"
                 htmlClass="header-shop" after="-">

@@ -329,7 +329,22 @@
 }
 
 .form-login {
-    .actions-toolbar {
-        justify-content: flex-start!important;
+  .actions-toolbar {
+        justify-content: space-between !important;
+        align-items:center;
+     
+        div {
+            flex:0 0 50%;
+            margin:0px !important;
+
+            float:none !important;
+        
+            &.secondary {
+                text-align:right;
+            }
+        
+        }
+    
+    
     }
 }
