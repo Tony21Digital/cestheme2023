@@ -5,90 +5,111 @@
  * See COPYING.txt for license details.
  */
 -->
-<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <update handle="default_head_blocks"/>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks" />
     <body>
         <referenceContainer name="header.panel">
-            <block class="Magento\Framework\View\Element\Template" name="header.panel.quicklink" as="headerPanelQuicklink" template="Magento_Theme::header-quicklink.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="header.panel.quicklink"
+                as="headerPanelQuicklink" template="Magento_Theme::header-quicklink.phtml">
+
+            </block>
+            <container name="action-phone" label="actionphone" as="action_phone" htmlTag="div"
+                htmlClass="header-phone" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="header.phone.link"
+                    as="headerPhoneLink" template="Magento_Theme::header-phone.phtml" />
+            </container>
         </referenceContainer>
 
         <referenceContainer name="header-wrapper">
-            <container name="header-actions" label="headeractions" as="header_actions" htmlTag="div" htmlClass="header-actions">
+            <container name="header-wrapper-content" htmlTag="div" htmlClass="header-content-block">
+                <container name="header.logos" label="headerlogos" as="header_logos" htmlTag="div"
+                    htmlClass="logo" before="-" />
+                    <container name="action-search" label="actionsearch" as="action_search" htmlTag="div"
+                    htmlClass="header-search">
+                </container>
+                <container name="header-actions" label="headeractions" as="header_actions"
+                    htmlTag="div" htmlClass="header-actions">
+                </container>
             </container>
         </referenceContainer>
 
         <referenceContainer name="header-actions">
-            <container name="top-header" label="topheader" htmlTag="div" htmlClass="topheader" before="-">
+            <container name="top-header" label="topheader" htmlTag="div" htmlClass="topheader"
+                before="-">
 
             </container>
-            <container name="action-links" label="actionlinks" as="action_links" htmlTag="div" htmlClass="action-links">
+            <container name="action-links" label="actionlinks" as="action_links" htmlTag="div"
+                htmlClass="action-links">
             </container>
-            <container name="mobile.search.container" as="mobilesearchcontainer" htmlTag="div" htmlClass="mobile-search--container" after="action-links">
-                <block class="Magento\Framework\View\Element\Template" name="mobile.search" template="Magento_Search::form.mini-mobile.phtml" />
+            <container name="mobile.search.container" as="mobilesearchcontainer" htmlTag="div"
+                htmlClass="mobile-search--container" after="action-links">
+                <block class="Magento\Framework\View\Element\Template" name="mobile.search"
+                    template="Magento_Search::form.mini-mobile.phtml" />
             </container>
         </referenceContainer>
 
         <!-- <referenceBlock name="logo" remove="true" /> -->
 
-        <referenceContainer name="header-wrapper">
-            <container name="header.logos" label="headerlogos" as="header_logos" htmlTag="div" htmlClass="logo" before="-"/>
-        </referenceContainer>
 
         <!-- move logo into new container -->
-        <move element="logo" destination="header.logos" before="-"/>
+        <move element="logo" destination="header.logos" before="-" />
         <move element="mobile-logo" destination="top-header" before="-" />
         <!-- <move element="ammenu.logo" destination="header.logos" /> -->
 
         <!-- move main navigation into header-actions container -->
-        <move element="navigation.sections" destination="header-wrapper" after="-"/>
+        <move element="navigation.sections" destination="header-wrapper" after="-" />
+
+        <move element="tax.selector" destination="header.panel" as="tax_selector" after="-" />
+
 
         <referenceContainer name="action-links">
-            <container name="customer-actions" label="customeractions" as="customer_actions" htmlTag="div" htmlClass="customer-actions">
+            <container name="customer-actions" label="customeractions" as="customer_actions"
+                htmlTag="div" htmlClass="customer-actions">
             </container>
         </referenceContainer>
 
         <referenceContainer name="customer-actions">
-            <container name="action-search" label="actionsearch" as="action_search" htmlTag="div" htmlClass="header-search">
+          
+            <block class="Magento\Framework\View\Element\Template" name="mobile.nav.toggle"
+                template="Magento_Theme::menu-toggle.phtml" before="action-phone" />
+          
+            <container name="action-account" label="actionaccount" as="action_account" htmlTag="div"
+                htmlClass="header-contact" after="action-phone">
+                <block class="Magento\Framework\View\Element\Template" name="header.account.link"
+                    as="headerAccountLink" template="Magento_Theme::header-account-link.phtml" />
+             
             </container>
-            <block class="Magento\Framework\View\Element\Template" name="mobile.nav.toggle" template="Magento_Theme::menu-toggle.phtml" before="action-phone" />
-            <container name="action-phone" label="actionphone" as="action_phone" htmlTag="div" htmlClass="header-phone" after="action-search">
-                <block class="Magento\Framework\View\Element\Template" name="header.phone.link" as="headerPhoneLink" template="Magento_Theme::header-phone.phtml" />
-            </container>
-            <container name="mobile-logo" label="mobilelogo" as="mobile_logo" htmlTag="div" htmlClass="mobile-logo" before="action-account">
-                <block class="Magento\Framework\View\Element\Template" name="header.mob.logo" as="headerMoblogo" template="Magento_Theme::mob-logo.phtml" />
-            </container>
-            <container name="action-account" label="actionaccount" as="action_account" htmlTag="div" htmlClass="header-contact" after="action-phone">
-                <block class="Magento\Framework\View\Element\Template" name="header.account.link" as="headerAccountLink" template="Magento_Theme::header-account-link.phtml" />
-            </container>
-            <container name="mobile-search-icon" label="mobilesearchicon" htmlTag="div" htmlClass="header-search-icon" after="action-account">
-                <block class="Magento\Framework\View\Element\Template" name="header.mobile.search.icon" as="header.mobile.search.icon" template="Magento_Theme::header-search-icon.phtml" />
-
-            </container>
-            <container name="header-shop" label="headershop" as="header_shop" htmlTag="div" htmlClass="header-shop" after="-">
+            <container name="header-shop" label="headershop" as="header_shop" htmlTag="div"
+                htmlClass="header-shop" after="-">
             </container>
         </referenceContainer>
 
         <referenceContainer name="page.wrapper">
-            <block class="Magento\Framework\View\Element\Template" name="menu.overlay" as="menuOverlay" template="Magento_Theme::menu-overlay.phtml" />
-            <container name="key.messages.container" label="key-messages-container" as="key_messages_container" htmlTag="div" htmlClass="key-messages" after="page.top">
-              <block class="Magento\Cms\Block\Block" name="key.messages" before="-">
-                  <arguments>
-                      <argument name="block_id" xsi:type="string">key-messages</argument>
-                  </arguments>
-              </block>
+            <block class="Magento\Framework\View\Element\Template" name="menu.overlay"
+                as="menuOverlay" template="Magento_Theme::menu-overlay.phtml" />
+            <container name="key.messages.container" label="key-messages-container"
+                as="key_messages_container" htmlTag="div" htmlClass="key-messages" after="page.top">
+                <block class="Magento\Cms\Block\Block" name="key.messages" before="-">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">key-messages</argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
 
         <referenceContainer name="main.content">
 
-            <container name="newsletter.container" label="newsletter-container" as="newsletter_container" htmlTag="div" htmlClass="newsletter" before="footer">
+            <container name="newsletter.container" label="newsletter-container"
+                as="newsletter_container" htmlTag="div" htmlClass="newsletter" before="footer">
                 <!-- <block class="Magento\Cms\Block\Block" name="newsletter.banner" before="-">
                     <arguments>
                         <argument name="block_id" xsi:type="string">newsletter</argument>
                     </arguments>
                 </block> -->
             </container>
-            <container name="cte.container" label="cte-container" as="cte_container" htmlTag="div" htmlClass="commited-excellence has-animation" before="newsletter.container">
+            <container name="cte.container" label="cte-container" as="cte_container" htmlTag="div"
+                htmlClass="commited-excellence has-animation" before="newsletter.container">
                 <block class="Magento\Cms\Block\Block" name="cte" before="-">
                     <arguments>
                         <argument name="block_id" xsi:type="string">commited-to-excellence</argument>
@@ -97,27 +118,40 @@
             </container>
         </referenceContainer>
 
-        <move element="form.subscribe" destination="newsletter.container" before="-"/>
+        <move element="form.subscribe" destination="newsletter.container" before="-" />
+
 
         <referenceContainer name="footer">
-            <container name="footer-logo" label="footer-logo" as="footer_logo" htmlTag="div" htmlClass="footer-logo" before="footer_links">
-                <block class="Magento\Framework\View\Element\Template" name="footer.logo.info" as="footerLogo" template="Magento_Theme::footer-logo.phtml" />
+            <container name="footer-logo" label="footer-logo" as="footer_logo" htmlTag="div"
+                htmlClass="footer-logo" before="footer_links">
+                <block class="Magento\Framework\View\Element\Template" name="footer.logo.info"
+                    as="footerLogo" template="Magento_Theme::footer-logo.phtml" />
             </container>
-            <container name="safe-secure" label="safe-secure" as="safe_secure" htmlTag="div" htmlClass="safe-secure" after="footer_links">
-                <block class="Magento\Framework\View\Element\Template" name="safe.secure.info" as="safeSecure" template="Magento_Theme::footer-safe-secure.phtml" />
-                <block class="Magento\Framework\View\Element\Template" name="safe.secure.graphic" as ="safeSecureGraphic" template="Magento_Theme::footer-safe-secure-graphic.phtml" />
+            <container name="safe-secure" label="safe-secure" as="safe_secure" htmlTag="div"
+                htmlClass="safe-secure" after="footer_links">
+                <block class="Magento\Framework\View\Element\Template" name="safe.secure.info"
+                    as="safeSecure" template="Magento_Theme::footer-safe-secure.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="safe.secure.graphic"
+                    as="safeSecureGraphic"
+                    template="Magento_Theme::footer-safe-secure-graphic.phtml" />
             </container>
-            <container name="contact.header" label="contact" as="contact" htmlTag="ul" htmlClass="contact" after="footer-links">
-                <block class="Magento\Framework\View\Element\Template" name="contact.info.title" as="contactInfoTitle" template="Magento_Theme::footer-contact-title.phtml" />
-                <block class="Magento\Framework\View\Element\Template" name="contact.info" as="contactInfo" template="Magento_Theme::footer-contact-info.phtml" />
+            <container name="contact.header" label="contact" as="contact" htmlTag="ul"
+                htmlClass="contact" after="footer-links">
+                <block class="Magento\Framework\View\Element\Template" name="contact.info.title"
+                    as="contactInfoTitle" template="Magento_Theme::footer-contact-title.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="contact.info"
+                    as="contactInfo" template="Magento_Theme::footer-contact-info.phtml" />
             </container>
-            <container name="footer-bottom" label="footer-bottom" as="footer_bottom" htmlTag="div" htmlClass="footer-bottom" after="footer-links">
-                <block class="Magento\Framework\View\Element\Template" name="footer.bottom" template="Magento_Theme::footer-bottom.phtml" />
+            <container name="footer-bottom" label="footer-bottom" as="footer_bottom" htmlTag="div"
+                htmlClass="footer-bottom" after="footer-links">
+                <block class="Magento\Framework\View\Element\Template" name="footer.bottom"
+                    template="Magento_Theme::footer-bottom.phtml" />
             </container>
         </referenceContainer>
 
         <referenceBlock name="footer_links">
-            <block class="Magento\Framework\View\Element\Template" name="footer.links.title" as="footerLinksTitle" template="Magento_Theme::footer-links-title.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="footer.links.title"
+                as="footerLinksTitle" template="Magento_Theme::footer-links-title.phtml" />
             <block class="Magento\Framework\View\Element\Html\Link\Current" name="contact">
                 <arguments>
                     <argument name="label" xsi:type="string" translate="true">Contact</argument>
@@ -170,15 +204,15 @@
         <referenceBlock name="report.bugs" remove="true" />
         <!-- <referenceBlock name="form.subscribe" remove="true" /> -->
         <referenceBlock name="store.links" remove="true" />
-        <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+        <referenceBlock name="sale.reorder.sidebar" remove="true" />
         <referenceBlock name="advanced-search-link" remove="true" />
 
         <!-- Remove Default Footer Links -->
-        <referenceBlock name="privacy-policy-link" remove="true"/>
-        <referenceBlock name="search-term-popular-link" remove="true"/>
-        <referenceBlock name="catalog-search-advanced-link" remove="true"/>
-        <referenceBlock name="sales-guest-form-link" remove="true"/>
-        <referenceBlock name="contact-us-link" remove="true"/>
+        <referenceBlock name="privacy-policy-link" remove="true" />
+        <referenceBlock name="search-term-popular-link" remove="true" />
+        <referenceBlock name="catalog-search-advanced-link" remove="true" />
+        <referenceBlock name="sales-guest-form-link" remove="true" />
+        <referenceBlock name="contact-us-link" remove="true" />
 
         <!-- Move Elements -->
         <move element="breadcrumbs" destination="main" before="-" />

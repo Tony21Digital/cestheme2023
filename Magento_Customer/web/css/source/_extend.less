@@ -1,0 +1,652 @@
+:root {
+
+    --red    : #ce181e;
+    --pale   : #f4f4f5;
+    --redFade: rgba(204, 25, 31, 0.85);
+    --fieldMarginBottom: 0;
+
+    @media (min-width:992px) {
+        --btnTextColour     : black;
+        --btnTextSpanDisplay: none;
+        --spanFontSize      : 20px;
+        --headBackground    : white;
+        --mainPadding       : 10px;
+        --benefitGridAreas  : "one two three";
+        --benefitGridCols   : repeat(3, 1fr);
+        --benefitWidth      : 80%;
+        --captionWidth      : 50%;
+
+
+    }
+
+    @media (max-width:991px) {
+        --btnTextColour     : white;
+        --btnTextSpanDisplay: inline-block;
+        --spanFontSize      : 14px;
+        --headBackground    : var(--red);
+        --mainPadding       : 20px;
+        --benefitGridAreas  : "one two""three three";
+        --benefitGridCols   : repeat(2, 1fr);
+        --benefitWidth      : 100%;
+        --captionWidth      : 90%;
+    }
+
+
+    @media (min-width:601px) {
+        --formFlexFlow: row wrap;
+        --fieldFlex: 0 0 49%;
+      
+
+
+    }
+
+
+    @media (max-width:600px) {
+        --formFlexFlow: column;
+        --fieldFlex: 0 0 100%;
+      
+
+    }
+
+}
+
+.header-contact {
+    position: relative;
+
+    section {
+
+        &#account-block {
+            z-index   : 9999;
+            border    : solid 1px black;
+            background: white;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+            display   : none;
+
+            @media (min-width:991px) {
+
+                position: absolute;
+                right   : 0px;
+                top     : 100%;
+                width   : 250px;
+
+
+            }
+
+            @media (max-width:990px) {
+                position: fixed;
+                width   : 100vw;
+                top     : 0px;
+                left    : 0px;
+
+
+            }
+
+
+
+            & * {
+                &:not(.fa) {
+
+                    font-family: @axiformabook;
+                    font-size  : 13px;
+                }
+            }
+
+            header {
+
+                padding        : 10px;
+                background     : var(--headBackground);
+                display        : flex;
+                align-items    : center;
+                justify-content: flex-end;
+
+                @media (min-width:992px) {
+                    display: none;
+                }
+
+
+                button {
+                    display    : flex;
+                    align-items: center;
+                    gap        : 5px;
+                    border     : none;
+                    background : transparent;
+                    cursor     : pointer;
+
+                    & * {
+                        color    : var(--btnTextColour);
+                        font-size: var(--spanFontSize);
+                    }
+
+                    span {
+                        display: var(--btnTextSpanDisplay);
+
+                    }
+
+                }
+
+
+            }
+
+            main {
+
+                padding: var(--mainPadding);
+
+
+                div {
+
+                    &:first-of-type {
+                        border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+                    }
+
+                    &:last-of-type {
+                        margin-top: 10px;
+                    }
+
+
+                    p {
+                        color         : black;
+                        text-transform: capitalize;
+                        margin-bottom : 0px;
+                        text-align    : center;
+
+                    }
+
+                    a {
+                        width          : 100%;
+                        max-width      : 200px;
+                        padding        : 10px;
+                        text-transform : uppercase;
+                        color          : white;
+                        margin         : 10px auto;
+                        text-align     : center;
+                        justify-content: center;
+                        line-height    : 13px;
+                        font-size      : 13px;
+                        transition     : all 0.3s;
+
+
+
+                        &.login {
+                            background: var(--red);
+
+                            &:hover {
+                                background: black;
+                                color     : white;
+                            }
+                        }
+
+                        &.register {
+                            background   : black;
+                            margin-bottom: 0px;
+
+                            &:hover {
+                                background: var(--red);
+                                color     : white;
+                            }
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+
+            }
+
+            &.activeblock {
+
+                display: block;
+
+            }
+
+        }
+
+    }
+
+
+    @media (min-width:991px) {
+        &:hover {
+
+            a {
+
+                &.headerlink {
+
+                    &:before {
+                        content       : '';
+                        width         : 100%;
+                        height        : 100%;
+                        display       : block;
+                        background    : var(--red);
+                        position      : absolute;
+                        left          : 0;
+                        top           : 0;
+                        mix-blend-mode: screen;
+
+                    }
+
+
+                }
+            }
+
+            section {
+                &#account-block {
+                    display: block;
+                }
+            }
+
+        }
+    }
+}
+
+
+/* custom login / registration */
+
+
+body {
+
+    &.customer-account-login,
+    &.customer-account-create {
+
+        .field.note,
+        .remind span {
+            font-size: 16px;
+        }
+
+
+
+
+
+        .login-container,
+        .block-content {
+            display       : flex;
+            flex-direction: column;
+            padding-bottom: 0px;
+            padding-top   : 0px !important;
+
+            .block-customer-login {
+
+                margin: auto !important;
+                padding-top:0px;
+
+                h1 {
+                    color      : var(--red);
+                    width      : 100%;
+                    text-align : center;
+                    font-family: @axiformabook;
+                    font-size:24px;
+
+                }
+
+
+                form {
+
+                    label {
+
+                        span {
+                            font-weight: normal !important;
+                            font-size:13px;
+                        }
+                    }
+
+                    &#login-form {
+                        width: 100% !important;
+
+                        fieldset {
+
+
+                            &>.field {
+                                margin: 0 0 10px !important;
+
+                                &.required {
+
+                                    label {
+
+                                        &:after {
+                                            font-size:12px !important;
+
+                                        }
+                                    }
+                                }
+                                
+
+                            }
+
+                        }
+
+
+
+                    }
+
+                    margin          :30px auto;
+                    border          :solid 1px black;
+                    padding         :20px;
+                    background-color:rgba(0, 0, 0, 0.01);
+
+                }
+
+
+                .nc-notice {
+                    display        : flex;
+                    flex-direction : column;
+                    align-items    : center;
+                    justify-content: center;
+                    gap            : 20px;
+
+                    p {
+                        text-align: center;
+                        font-size : 16px;
+                    }
+
+
+                    a {
+                        padding       : 10px 20px;
+                        font-family   : @axiformabold;
+                        color         : white;
+                        background    : black;
+                        text-transform: uppercase;
+                        display       : inline-block;
+                        margin        : auto;
+                        transition    : all 0.3s;
+                        font-size     : 14px;
+
+
+                        &:hover {
+                            background-color: var(--red);
+                            text-decoration : none;
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+            h1 {
+                color      : var(--red);
+                width      : 100%;
+                text-align : center;
+                font-family: @axiformabook;
+                font-size  : 24px !important;
+            }
+
+            form {
+
+                margin          : 30px auto;
+                border          : solid 1px black !important;
+                padding         : 20px;
+                background-color: rgba(0, 0, 0, 0.01);
+                border-radius   : 0px !important;
+
+
+                fieldset {
+
+                    label {
+                        span {
+                            font-weight: normal;
+                            font-size:13px;
+                        }
+                    }
+
+                    div {
+
+                        &.field {
+                            margin-bottom:10px;
+                            input {
+                                margin: 0;
+                            }
+
+                            label {
+
+                                &:after {
+                                    font-size:12px !important;
+
+                                }
+                            }
+
+                            &:not(.choice) {
+
+                                & > label {
+                                    font-size:13px;
+                                }
+                            }
+
+                        }
+                    }
+
+
+                }
+
+                &.create {
+
+
+                    &.account {
+
+                        width:90%;
+                        max-width:540px;
+                        min-width:unset !important;
+                        margin-top:20px;
+
+                        .actions-toolbar {
+                            margin-top:0px;
+
+                            .primary {
+
+                                height:40px;
+
+                                button {
+
+                                    span {
+                                        font-size     : 12px !important;
+                                        text-transform: uppercase !important;
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    fieldset {
+
+                        &.create {
+
+                            &.info {
+                                display:flex;
+                                flex-flow:var(--formFlexFlow);
+                                gap:10px;
+
+                                div {
+                                    &:not(:last-of-type) {
+                                        flex:var(--fieldFlex);
+                                        margin-bottom:var(--fieldMarginBottom);
+                                    }
+
+                                }
+
+                                
+
+
+
+                            }
+
+                        }
+
+                    }
+
+
+                }
+
+
+            }
+
+
+
+            a {
+                &.remind {
+                    text-decoration: underline;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+        }
+
+        .page-main {
+
+            padding:30px 0 0 0 !important;
+
+        }
+
+    }
+}
+
+.reg-benefits {
+
+    display        : flex;
+    flex-direction : column;
+    gap            : 30px;
+    align-items    : center;
+    justify-content: center;
+    margin:30px auto 0 auto;
+
+    h2 {
+        text-align: center;
+        font-size:24px !important;
+        font-family:@axiformabook;
+
+    }
+
+    ul {
+        list-style-type      : none;
+        padding              : 0px;
+        display              : grid;
+        grid-template-areas  : var(--benefitGridAreas);
+        grid-template-columns: var(--benefitGridCols);
+        gap                  : 30px;
+        width                : var(--benefitWidth);
+
+        li {
+            &:nth-child(1) {
+                grid-area: one;
+            }
+
+            &:nth-child(2) {
+                grid-area: two;
+            }
+
+            &:nth-child(3) {
+                grid-area: three
+            }
+
+            figure {
+                display       : flex;
+                flex-direction: column;
+                gap           : 10px;
+                width         : 100%;
+                margin        : auto;
+
+                picture {
+                    display: flex;
+
+                    img {
+                        margin: auto;
+                        width : 50px;
+                        height: auto;
+                    }
+
+                }
+
+
+                figcaption {
+                    text-align: center;
+                    width     : var(--captionWidth);
+                    margin    : auto;
+                    font-size : 16px;
+                }
+
+
+            }
+        }
+    }
+}
+
+
+section {
+
+
+    &#account-cta {
+        width                : 100%;
+        max-width            : 1366px;
+        margin               : 0px auto 20px auto;
+        display              : grid;
+        grid-template-columns: 100%;
+        grid-template-rows   : 1;
+        justify-items        : center;
+
+        img,
+        picture {
+            width      : 100%;
+            height     : auto;
+            object-fit : cover;
+            grid-column: 1;
+            grid-row   : 1;
+            filter     : saturate(30%);
+
+        }
+
+        main {
+            grid-column    : 1;
+            grid-row       : 1;
+            display        : flex;
+            flex-direction : column;
+            align-items    : center;
+            justify-content: center;
+            width          : 100%;
+            z-index        : 1;
+            padding        : 20px;
+
+            background: var(--redFade);
+
+
+            h3 {
+                color        : white;
+                margin-bottom: 20px;
+                font-weight  : 500;
+                text-align   : center;
+                font-size    : 24px;
+                font-family  : @axiformabook
+            }
+
+            p {
+                color      : white;
+                font-size  : 20px;
+                font-size  : 18px;
+                font-family: @axiformabook;
+                text-align : center;
+
+                strong {
+                    font-family: @axiformabold;
+                }
+
+                a {
+                    color: white;
+
+
+                }
+
+            }
+
+
+        }
+
+
+
+    }
+}

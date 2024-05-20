@@ -13,9 +13,6 @@ $helper = $this->helper(\Magento\Search\Helper\Data::class);
 ?>
 
 <div class="search-inner">
-
-    <a href="#"></a>
-
     <form class="search-form" id="search_mini_form" action="<?= $block->escapeUrl($helper->getResultUrl()) ?>" method="get">
           
         <input id="search"
@@ -25,10 +22,10 @@ $helper = $this->helper(\Magento\Search\Helper\Data::class);
                 "destinationSelector":"#search_autocomplete",
                 "minSearchLength":"<?= $block->escapeHtml($helper->getMinQueryLength()) ?>"}
             }'
-            type="text"
+            type="search"
             name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
             value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>"
-            placeholder="<?= $block->escapeHtmlAttr(__('Search')) ?>"
+            placeholder="<?= $block->escapeHtmlAttr(__('Search by product name or brand')) ?>"
             class="input-text"
             maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>"
             role="combobox"
@@ -40,8 +37,9 @@ $helper = $this->helper(\Magento\Search\Helper\Data::class);
             <?= $block->getChildHtml() ?>
 
         <button type="submit" title="<?= $block->escapeHtmlAttr(__('Search')) ?>" class="action search" aria-label="Search">
-            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 37.99"><path d="M70.56,61.22l-14-17A2,2,0,0,0,53.73,44a2.09,2.09,0,0,0-.26,2.83L64.75,60.5H19a2,2,0,0,0,0,4H64.75L53.47,78.22a2.1,2.1,0,0,0,.26,2.83,2,2,0,0,0,2.83-.27l14-17A2.08,2.08,0,0,0,70.56,61.22Z" transform="translate(-17 -43.5)"/></svg>
-        </button>
+        <?= $block->escapeHtmlAttr(__('Search')) ?>
+
+          </button>
         
     </form>
 

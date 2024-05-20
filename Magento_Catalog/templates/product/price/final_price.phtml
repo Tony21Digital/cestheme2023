@@ -46,7 +46,7 @@ $_taxHelper = $this->helper('Magento\Catalog\Helper\Data');
         <span class="price-wrapper price-excluding-tax" data-label="EX VAT">
 
             <span class="price">
-                <?php /* @escapeNotVerified */ echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format($priceModel->getAmount()->getBaseAmount(), 2), true, false) ?>
+               <?= $cur->formatCurrency($priceModel->getAmount()->getBaseAmount(),'GBP') ?>
             </span>
         </span>
 

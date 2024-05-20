@@ -205,6 +205,7 @@ if ($menu = $this->getMenu()) {
 		<?php } ?>
 		<div class="navigation navitaion<?php echo $id ?>">
 			<nav class="navigation" data-action="navigation">
+				
 				<ul id="<?php echo $navId ?>" class="<?php echo $navId ?>"  <?php if($disableBellow>0){ ?>data-disable-bellow="<?php echo $disableBellow ?>"<?php } ?> data-mage-init='{"menu":{"responsive":false, "expanded":false, "position":{"my":"left top","at":"left bottom"}}}' data-toggle-mobile-nav="false">
 					<?php echo $html; ?>
 				</ul>
@@ -686,3 +687,59 @@ if ($menu = $this->getMenu()) {
 });
 </script>
 <?php } ?>
+<script>
+	/**
+	 * Insert the "view all" options above each block
+	 * 
+	 */
+	window.addEventListener('load',()=> {
+
+		const _a = document.querySelectorAll('nav.navigation ul li a.nav-anchor.subdynamic');
+		_a.forEach(a=> {
+			const _href = a.href;
+			const _text = a.innerText;
+			const _tgtSibling = a.nextElementSibling;
+			const _tgtElement = _tgtSibling.querySelector('.dorgin-items > .dynamic-items');
+			const _tgtUl = _tgtElement.querySelectorAll('li.nav-item');
+			/* now create the "view all" element for the first column */
+
+			const _all = document.createElement('a');
+			_all.classList.add('viewall');
+			_all.innerText = `Shop All ${_text}`;
+			_all.href = _href;
+			_tgtElement.insertAdjacentElement('afterbegin',_all);
+
+
+			/* now do the child blocks */
+
+			_tgtUl.forEach(i=> {
+				const _aTag = i.querySelector('a.nav-anchor');
+				const _tgtId = i.dataset.dynamicId;
+				const _tgtElParent = document.querySelector(`#${_tgtId}`);
+				const _tgtEl = _tgtElParent.querySelector('.content-wrapper');
+				if (_tgtEl) {
+				const _aEl = document.createElement('a');
+				_aEl.classList.add('viewall');
+				_aEl.href = _aTag.href;
+				_aEl.innerText = `Shop All ${_aTag.innerText}`;
+				_tgtEl.insertAdjacentElement('afterbegin',_aEl)
+				}
+
+
+			});
+
+
+
+
+
+
+
+
+
+		});
+
+
+
+	});
+
+</script>

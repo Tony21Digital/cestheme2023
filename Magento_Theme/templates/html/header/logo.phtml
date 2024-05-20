@@ -48,20 +48,6 @@ $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAl
     text-align: center;
 }
 </style>
-
-<a
-    class="desktop-logo"
-    href="<?= $block->escapeUrl($block->getUrl('')) ?>"
-    title="<?= $block->escapeHtmlAttr($storeName) ?>"
-    aria-label="store logo">
-    <img src="<?= $block->escapeUrl($block->getLogoSrc()) ?>"
-         title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
-         alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
-            <?= $block->getLogoWidth() ? 'width="' . $block->escapeHtmlAttr($block->getLogoWidth()) . '"' : '' ?>
-            <?= $block->getLogoHeight() ? 'height="' . $block->escapeHtmlAttr($block->getLogoHeight()) . '"' : '' ?>
-    />
-</a>
-
-<a class="mob-logo" href="/">
-	<img src='<?php echo $this->getViewFileUrl('images/mobile/cutting-edge-services.svg'); ?>' alt="cutting edge services logo">
+<a class="main-logo" href="/">
+	<img src='<?= $this->getViewFileUrl('images/mobile/cutting-edge-services.svg'); ?>' alt="cutting edge services logo">
 </a>

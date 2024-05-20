@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © 21 Digital
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+$url = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+$loginUrl = $block->getUrl('customer/account/login', array('referer' => base64_encode($url)));
+?>
+
+<section id="account-block">
+    <header>
+        <button id="acClose"><span class="mobile">Close</span><i class="fa fa-close"></i></button>
+    </header>
+    <main>
+        <div>
+            <p>Existing Customers</p>
+            <a class="login" href="<?= $loginUrl ?>">Login</a>
+        </div>
+        <div>
+            <p>New Customers</p>
+            <a class="register" href="<?= $block->getUrl('customer/account/create') ?>">Register</a>
+        </div>
+    </main>
+</section>
+
+<script type="text/x-magento-init">
+{
+"body" :
+  {
+     "Magento_Customer/js/customeraccount": {}
+  }
+}
+</script>

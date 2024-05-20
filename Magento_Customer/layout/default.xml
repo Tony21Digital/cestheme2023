@@ -15,6 +15,12 @@
             </arguments>
         </block>
         
+        <referenceContainer name="action-account">
+            <block class="Magento\Framework\View\Element\Template" name="header.account.block"
+            as="headerAccountBlock" template="Magento_Customer::account-popup.phtml" after="-" />
+
+        </referenceContainer>
+
         <move element="mobile.menu.account" destination="store.menu" after="catalog.topnav" />
         <move element="my-account-link" destination="mobile.menu.account" />
 

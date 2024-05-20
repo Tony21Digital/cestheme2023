@@ -1,0 +1,141 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/** @var \Magento\Contact\Block\ContactForm $block */
+?>
+
+<section class="intro-block">
+    <div class="c-container">
+
+      <p>Everything we do, we do to give our customers the edge.</p>
+
+    </div>
+</section>
+
+<section class="contact-container">
+
+  <div class="contact-form">
+
+      <form class="form contact"
+            action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+            id="contact-form"
+            method="post"
+            data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+            data-mage-init='{"validation":{}}'>
+          <fieldset class="fieldset">
+              <div class="field name required">
+                  <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+                  <div class="control">
+                      <input name="name" id="name" title="<?= $block->escapeHtmlAttr(__('Name')) ?>"
+                             value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)
+                                 ->getPostValue('name')
+                                 ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserName()) ?>"
+                             class="input-text" type="text" data-validate="{required:true}"/>
+                  </div>
+              </div>
+
+              <div class="field telephone required">
+                  <label class="label" for="telephone"><span><?= $block->escapeHtml(__('Phone')) ?></span></label>
+                  <div class="control">
+                      <input name="telephone" id="telephone" title="<?= $block->escapeHtmlAttr(__('Phone')) ?>"
+                             value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)
+                                 ->getPostValue('telephone')) ?>"
+                             class="input-text" type="text" data-validate="{required:true}" />
+                  </div>
+              </div>
+
+              <div class="field email required">
+                  <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                  <div class="control">
+                      <input name="email" id="email"
+                             title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                             value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)
+                                 ->getPostValue('email')
+                                 ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserEmail()) ?>"
+                             class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+                  </div>
+              </div>
+
+              <div class="field company-name">
+                  <label class="label" for="company-name"><span><?= $block->escapeHtml(__('Company Name')) ?></span></label>
+                  <div class="control">
+                      <input name="company-name" id="company-name" title="<?= $block->escapeHtmlAttr(__('Conmpany Name')) ?>"
+                             value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)
+                                 ->getPostValue('company-name')) ?>"
+                             class="input-text" type="text"/>
+                  </div>
+              </div>
+
+              <div class="field comment required">
+                  <label class="label" for="comment"><span><?= $block->escapeHtml(__('Enquiry')) ?></span></label>
+                  <div class="control">
+                      <textarea name="comment" id="comment" title="<?= $block->escapeHtmlAttr(__('Enquiry')) ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"><?= $block->escapeHtml($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('comment')) ?></textarea>
+                  </div>
+              </div>
+
+              <div class="field">
+                  <input type="checkbox">I confirm I have read and agree to the <a href="/terms-conditions" target="_blank">terms</a> and <a href="/privacy-policy" target="_blank">privacy policy</a>.
+              </div>
+
+              <?= $block->getChildHtml('form.additional.info') ?>
+
+          </fieldset>
+          <div class="actions-toolbar">
+              <div class="primary">
+                  <input type="hidden" name="hideit" id="hideit" value="" />
+                  <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                      <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                  </button>
+              </div>
+          </div>
+      </form>
+      <script type="text/x-magento-init">
+          {
+              "*": {
+                  "Magento_Customer/js/block-submit-on-send": {
+                      "formId": "contact-form"
+                  }
+              }
+          }
+      </script>
+
+  </div>
+
+
+  <div class="contact-methods">
+
+      <ul>
+        <li>
+          <div class="method-title">Phone</div>
+          <a href="tel:+44 (0) 1772 956270">+44 (0) 1772 956270</a>
+        </li>
+        <li>
+          <div class="method-title">Email</div>
+          <a href="mailto:sales@cuttingedgeservices.co.uk">sales@cuttingedgeservices.co.uk</a>
+        </li>
+        <li>
+          <div class="method-title">Visit Us</div>
+          <address>
+          Cutting Edge Services Ltd<br>
+          Matrix Park, Western Avenue<br>
+          Buckshaw Village, Chorley<br>
+          Lancashire, PR7 7NB
+          </address>
+        </li>
+      </ul>
+
+      <div class="google-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1181.431102443638!2d-2.6694775238045376!3d53.68508124498842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b0d3d5c2aca1d%3A0x1d2cc97525afeb30!2sCutting%20Edge%20Services!5e0!3m2!1sen!2suk!4v1623764000628!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        <a href="https://goo.gl/maps/FVxNTJLLF4FHdTJ66" class="readmore" target="_blank">View Map</a>
+      </div>
+
+  </div>
+
+</section>

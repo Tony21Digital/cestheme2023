@@ -5,7 +5,7 @@
 }
 
 .minicart-wrapper .action.showcart {
-	display: flex;
+	display: flex !important;
 }
 
 .minicart-wrapper .action.showcart:before {
@@ -24,13 +24,12 @@
 	height: auto!important;
 	margin: 0!important;
 	position: relative!important;
-	font-family: @axiformabold;
-	color: #666;
+	font-family: @axiformabook;
+	color: black;
+	font-weight:normal;
+	text-transform:none;
 
-	@media @laptop {
-		font-family: @axiformabook;
-		color: @white;
-	}
+	
 }
 
 .block-minicart .subtitle.empty {
@@ -51,14 +50,14 @@
 
 .minicart-wrapper .action.showcart .counter.qty {
 	position: absolute;
-	background: @red;
+	background: @red !important;
 	margin: 0;
 	font-size: 12px;
 	line-height: 26px;
 	width: 25px;
 	height: 25px;
-	top: 3px;
-	right: -15px;
+	top: -10px;
+	right: unset;
 	min-width: auto;
 	border-radius: 100%;
     border: 1px solid @red;
