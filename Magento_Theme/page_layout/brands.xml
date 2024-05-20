@@ -5,22 +5,24 @@
  * See COPYING.txt for license details.
  */
 -->
-<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
-    <update handle="1column"/>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+  <update handle="1column" />
 
-    <referenceContainer name="sidebar.main">
-      <referenceBlock name="catalog.leftnav" remove="true"/>
-    </referenceContainer>
+  <referenceContainer name="sidebar.main">
+    <referenceBlock name="catalog.leftnav" remove="true" />
+  </referenceContainer>
+  <referenceContainer name="content">
+    <container name="brands" as="brands" htmlTag="div" htmlClass="brand-listing" after="-">
+      <block class="Magepow\Categories\Block\Categories" name="brands.block"
+        template="Magepow_Categories::brands.phtml" />
+    </container>
+  </referenceContainer>
 
-    <referenceBlock name="magepow.categories.category.page.before">
-      <action method="setTemplate">
-       <argument name="template" xsi:type="string">Magepow_Categories::brands.phtml</argument>
-     </action>
-    </referenceBlock>
 
-    <referenceContainer name="main.content">
-      <referenceContainer name="category-bottom" remove="true"/>
-    </referenceContainer>
+  <referenceContainer name="main.content">
+    <referenceContainer name="category-bottom" remove="true" />
+  </referenceContainer>
 
 
 </layout>

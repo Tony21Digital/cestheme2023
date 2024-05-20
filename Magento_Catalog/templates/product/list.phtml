@@ -86,7 +86,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 
                                 <?php if ($_product->isSaleable()) : ?>
 
-                                    <?php if ($_product->getTypeId() === 'simple') : ?>
+                                    <?php if ($_product->getTypeId() === 'simple' && !$_product->getData('poa_label')) : ?>
                                      
                                         <form id="product_addtocart_form" class="category-link-add" data-product-sku="<?= $_product->getSku() ?>" action="<?= $this->getAddToCartUrl($_product) ?>">
                                             <input type="hidden" name="product" value="<?= $_product->getID(); ?>" />
@@ -103,12 +103,16 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
                                     </fieldset>
                                         </form>
 
-                                    <?php else : ?>
+                                    <?php else :
+                                        
+                                        $buttonText = ($_product->getData('poa_label')) ? "View Product" : "View Options";
+                                        
+                                        ?>
 
 
                                         <?php $postParams = $block->getAddToCartPostParams($_product); ?>
                                         <a class="product-item-link category-link-view-config" href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
-                                            <?= /* @escapeNotVerified */ __('View Options') ?>
+                                            <?= /* @escapeNotVerified */ __($buttonText) ?>
                                         </a>
                                     <?php endif; ?>
 

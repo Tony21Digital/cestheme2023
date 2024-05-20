@@ -329,4 +329,27 @@ window.addEventListener('DOMContentLoaded', () => {
 			};
 		});
 	}
+
+	/* Blank menu compensator */
+
+	const _subItems = document.querySelectorAll('.dropdown-submenu.category-item');
+	_subItems.forEach(i=> {
+		if (i.children.length === 0) {
+			const _targetLink = document.querySelector(`.nav-item[data-dynamic-id=${i.id}`);
+			const _a = _targetLink.firstChild;
+			const _newLink = `<a href="${_a.href}" title="Shop All ${_a.title}">Shop All ${_a.title}</a>`;
+			const _insert = `<div class="submenu-inner before-ves-submenu-inner">
+			<div class=" content-wrapper">
+			</div>
+			</div>`;
+
+			i.insertAdjacentHTML('afterbegin',_insert);
+
+
+		}
+
+
+	});
+
+
 });

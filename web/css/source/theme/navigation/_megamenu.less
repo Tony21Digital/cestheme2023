@@ -1,5 +1,5 @@
 .checkout-index-index {
-    
+
     .nav-sections {
         display: block;
     }
@@ -8,12 +8,14 @@
 @media @tablet {
 
     .ves-megamenu .navigation .nav-item .dynamic-content {
-        width: 60%!important;
-        padding-right: 0!important;
-        border-left: 1px solid #ddd;
+        width        : 60% !important;
+        padding-right: 0 !important;
+        border-left  : 1px solid #ddd;
+        height:320px;
     }
 
     .item-sidebar.right-sidebar {
+        height:320px;
 
         img {
             display: block;
@@ -24,27 +26,27 @@
 @media @laptop {
 
     .navigation ul {
-        position: unset!important;
+        position: unset !important;
     }
 
     .nav-desktop {
         background-color: transparent;
 
         .navigation {
-            padding: 0;
-            margin-right: unset!important;
-            text-align: right;
+            padding     : 0;
+            margin-right: unset !important;
+            text-align  : right;
 
-            .nav-item > a {
-                border-bottom: 0!important;
-                padding: 0 5px!important;
+            .nav-item>a {
+                border-bottom: 0 !important;
+                padding      : 0 5px !important;
             }
         }
     }
 
     .nav-sections {
         background-color: transparent;
-        margin-bottom: 0;
+        margin-bottom   : 0;
     }
 
     .ves-megamenu.ves-mdrilldown .navigation {
@@ -52,19 +54,19 @@
         .level0 {
 
             &:not(:last-of-type) {
-            
+
                 a {
 
                     &:after {
-                        content: "";
-                        display: inline-block;
-                        position: relative;
-                        right: -5px;
-                        width: 10px;
-                        height: 10px;
-                        background-image: url('../images/icons/menu-arrow.svg');
-                        background-repeat: no-repeat;
-                        background-size: 10px;
+                        content            : "";
+                        display            : inline-block;
+                        position           : relative;
+                        right              : -5px;
+                        width              : 10px;
+                        height             : 10px;
+                        background-image   : url('../images/icons/menu-arrow.svg');
+                        background-repeat  : no-repeat;
+                        background-size    : 10px;
                         background-position: center;
                     }
                 }
@@ -72,54 +74,53 @@
         }
     }
 
-    .ves-megamenu .navigation > ul {
+    .ves-megamenu .navigation>ul {
 
         span {
-            color: @white;
-            font-size: 10px;
+            color      : @white;
+            font-size  : 10px;
             line-height: 10px;
             font-family: @axiformabook;
             font-weight: normal;
-            
+
 
             @media @xldesktop {
-                font-size: 14px;
+                font-size  : 14px;
                 line-height: 14px;
             }
         }
     }
 
-    .ves-megamenu .navigation .level0.current > a {
-        background-color: transparent!important;
-        color: #fff;
+    .ves-megamenu .navigation .level0.current>a {
+        background-color: transparent !important;
+        color           : #fff;
     }
 
-    .ves-megamenu .nav-item.active > a {
-        background-color: transparent!important;
+    .ves-megamenu .nav-item.active>a {
+        background-color: transparent !important;
     }
 
     .ves-megamenu .navigation .level0 .submenu .dynamic-items .dynamic-active a {
-        border-right: 0!important;
+        border-right: 0 !important;
     }
 
-    .ves-megamenu .navigation .nav-item.subhover > .submenu {
-        width: 100% !important;
-        margin: 0 !important;
-        top: auto !important;
+    .ves-megamenu .navigation .nav-item.subhover>.submenu {
+        width    : 100% !important;
+        margin   : 0 !important;
+        top      : auto !important;
+        max-width: 1366px;
+        left     : 50%;
+        transform: translateX(-50%);
 
-        a {
-            &:after {
-                display: none;
-            }
-        }
     }
 
     .ves-megamenu .dynamic-items {
-        padding: 0!important;
-        width: 40%!important;
+        padding: 0 !important;
+        width  : 40% !important;
+        height:320px;
     }
 
-    .ves-megamenu .navigation .nav-item .dynamic-items > ul > li {
+    .ves-megamenu .navigation .nav-item .dynamic-items>ul>li {
         text-align: left;
 
         span {
@@ -131,50 +132,51 @@
         }
     }
 
-    .ves-megamenu .navigation .nav-item .dynamic-items > ul > li > a {
-        text-indent: unset!important;
-        padding: 10px 15px!important;
-        border-right: 0!important;
+    .ves-megamenu .navigation .nav-item .dynamic-items>ul>li>a {
+        text-indent : unset !important;
+        padding     : 10px 15px !important;
+        border-right: 0 !important;
     }
 
-    .ves-megamenu.top-navigation > .navigation {
-        padding: 0!important;
+    .ves-megamenu.top-navigation>.navigation {
+        padding: 0 !important;
     }
 
-    .ves-megamenu .navigation .nav-item .dynamic-items > ul > li:first-child > a {
-        border-top: 0!important;
+    .ves-megamenu .navigation .nav-item .dynamic-items>ul>li:first-child>a {
+        border-top: 0 !important;
     }
 
     .ves-megamenu .navigation .level0 .submenu .dynamic-items .nav-item a {
-        line-height: 18px!important;
-        text-align: left;
+        line-height: 18px !important;
+        text-align : left;
     }
 
     .ves-megamenu .navigation .nav-item .dynamic-content {
         text-align: left;
+        max-height:320px;
     }
 
-    .ves-megamenu .navigation .nav-item .subhover > .submenu > .submenu-inner {
-        padding: 15px!important;
+    .ves-megamenu .navigation .nav-item .subhover>.submenu>.submenu-inner {
+        padding: 15px !important;
     }
 
     .level2.dropdown-submenu {
 
         span {
-            color: @darkestgrey!important;
+            color: @darkestgrey  !important;
         }
     }
 
     .navigation .level0 .submenu a:hover {
-        background: #eee!important;
+        background: #eee !important;
     }
 
-    .ves-megamenu.ves-dhorizontal .level0 .submenu .nav-item > a {
-        line-height: 34px!important;
+    .ves-megamenu.ves-dhorizontal .level0 .submenu .nav-item>a {
+        line-height: 34px !important;
     }
 
-    .ves-megamenu .navigation .level0 .submenu .nav-item.current > a {
-        border-color: transparent!important;
+    .ves-megamenu .navigation .level0 .submenu .nav-item.current>a {
+        border-color: transparent !important;
     }
 }
 
@@ -184,9 +186,9 @@
 
         .navigation {
 
-            .nav-item > a {
-                border-bottom: 0!important;
-                padding: 0 15px!important;
+            .nav-item>a {
+                border-bottom: 0 !important;
+                padding      : 0 15px !important;
             }
         }
     }
@@ -194,7 +196,7 @@
     .ves-megamenu.ves-mdrilldown .navigation {
 
         .level0 {
-            
+
             a {
 
                 &:after {
@@ -210,43 +212,43 @@
 }
 
 .submenu-brands {
-    display: flex;
+    display    : flex;
     align-items: center;
     padding-top: 23px;
 
     .title {
-        display: inline-block;
-        margin-bottom: 0;
-        width: auto;
-        color: @red;
-        font-family: @axiformabook;
-        font-size: 14px;
-        line-height: 14px;
+        display       : inline-block;
+        margin-bottom : 0;
+        width         : auto;
+        color         : @red;
+        font-family   : @axiformabook;
+        font-size     : 14px;
+        line-height   : 14px;
         text-transform: uppercase;
-        padding-left: 20px;
+        padding-left  : 20px;
     }
 
     ul {
-        height: auto;
+        height        : auto;
         vertical-align: top;
-        min-height: auto!important;
-        border-right: 0!important;
-        margin-left: auto!important;
+        min-height    : auto !important;
+        border-right  : 0 !important;
+        margin-left   : auto !important;
     }
 
     li {
-        display: inline-block;
+        display : inline-block;
         position: relative;
-        flex: 1;
+        flex    : 1;
 
         img {
-            width: 100%;
+            width    : 100%;
             max-width: 120px;
         }
     }
 
     .ui-corner-all {
-        padding: 0!important;
+        padding: 0 !important;
     }
 }
 
@@ -266,9 +268,191 @@
 } */
 
 .nav-open .ves-megamenu .navigation .nav-6 .drill-opener {
-    display: none!important;
+    display: none !important;
 }
 
 .navigation .nav-6 .submenu {
-    display: none!important;
+    display: none !important;
+}
+
+
+/* new menu layout */
+
+
+.submenu-inner {
+
+    .content-wrapper {
+
+
+        .item-content {
+            display: flex;
+            height : 320px;
+
+            &:after {
+                content   : "";
+                width     : 1px;
+                height    : 100%;
+                position  : absolute;
+                left      : 100%;
+                top       : 0;
+                background: #ddd;
+
+            }
+
+            .dorigin-items {
+                height: 100%;
+            }
+
+
+        }
+    }
+}
+
+
+.right-sidebar {
+    position: relative;
+
+    // &:before {
+    //     content   : "";
+    //     width     : 1px;
+    //     height    : 100%;
+    //     position  : absolute;
+    //     left      : 0;
+    //     top       : 0;
+    //     background: #ddd;
+
+    // }
+
+
+    .submenu-brands {
+
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
+
+
+        .title {
+            text-align : center;
+            color      : black;
+            font-weight: bold;
+
+
+        }
+
+        ul {
+            display        : flex !important;
+            flex-flow      : row wrap;
+            gap            : 0;
+            width          : 80%;
+            justify-content: flex-start;
+            margin         : 20px auto !important;
+
+            li {
+                flex           : 0 0 50%;
+                display        : flex;
+                align-items    : center;
+                justify-content: center;
+
+            }
+
+        }
+
+    }
+
+
+}
+
+.mega-col-level-2 {
+    column-count: 2;
+}
+
+.ves-megamenu {
+
+    &.ves-mdrilldown {
+
+        .navigation {
+
+            .level0 {
+                a {
+                    &:after {
+                        content: none !important;
+                    }
+                }
+
+            }
+
+            .level1 {
+
+                a {
+                    &.nav-anchor {
+                        &.ui-menu-item-wrapper {
+                            position       : relative;
+                            display        : flex !important;
+                            flex-direction : row;
+                            align-items    : first baseline;
+                            justify-content: space-between;
+
+
+                            &::after {
+                                font-family: FontAwesome;
+                                content    : '\f105' !important;
+                                display    : block !important;
+                                background : none !important;
+                                font-size  : 12px;
+                                right      : 0 !important;
+
+
+                            }
+                        }
+                    }
+
+                }
+
+
+            }
+
+
+
+            .level2 {
+
+                a {
+                    &:after {
+                        content: none !important;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+a {
+
+    &.viewall {
+
+        text-align     : left;
+        font-size      : 14px ;
+        padding        : 7px 0px 7px 14px !important;
+        color          : black !important;
+        text-decoration: underline !important;
+        margin-bottom:7px;
+
+        &:hover {
+            background: none !important;
+            text-decoration:none !important;
+        }
+
+
+        & + p {
+            display:none;
+        }
+
+    }
+
 }
