@@ -2,26 +2,26 @@
     display: none;
 
     @media(max-width: 767px) {
-        display: block;
-        text-align: center;
-        color: @red;
-        font-size: 12px;
-        line-height: 12px;
-        margin-bottom: 15px;
+        display        : block;
+        text-align     : center;
+        color          : @red;
+        font-size      : 12px;
+        line-height    : 12px;
+        margin-bottom  : 15px;
         text-decoration: underline;
 
         &:visited {
-            color: @red;
+            color          : @red;
             text-decoration: underline;
         }
     }
 }
 
 .product.media {
-    width: 260px;
-    margin-left: auto;
+    width       : 260px;
+    margin-left : auto;
     margin-right: auto;
-    margin-top: 15px;
+    margin-top  : 15px;
 
     @media @tablet {
         margin-top: 0;
@@ -29,20 +29,98 @@
 }
 
 .gallery-placeholder {
-    border: 1px solid #ccc!important;
+    //  border: 1px solid #ccc!important;
 }
 
 .fotorama__nav--dots {
-    display: none;
+    display   : none;
     visibility: hidden;
 }
 
 .fotorama__nav-wrap--horizontal {
-    display: none!important;
+    display   : none !important;
     visibility: hidden;
 
     @media @tablet {
-        display: block!important;
+        display   : block !important;
         visibility: visible;
+    }
+}
+
+/* fotorama updates */
+
+.column.main {
+
+    .fotorama {
+
+        &__wrap {
+            display        : flex;
+            gap            : 20px;
+            justify-content: flex-start;
+            aspect-ratio   : 1/0.8;
+
+        }
+
+
+        &__nav-wrap {
+            &--vertical {
+                flex    : 0 0 90px;
+                order   : 1;
+                position: relative !important;
+
+
+
+
+                .fotorama__ {
+
+                    &nav__frame {
+
+                        border    : 1px solid #ccc !important;
+                        box-sizing: border-box;
+
+                        margin-bottom: 5px;
+
+                    }
+
+
+
+                }
+
+            }
+        }
+
+        &__stage {
+
+            flex : 0 0 auto;
+            order: 2;
+            width: auto !important;
+
+            aspect-ratio: 1/1;
+            height      : auto !important;
+            display     : block;
+            left        : 0 !important;
+
+            .fotorama {
+                &__stage__shaft {
+
+
+                    height      : auto;
+                    aspect-ratio: 1;
+                    order       : 2;
+
+
+                }
+
+                &__stage__frame {
+                    width:90%;
+                    img {
+                        border: 1px solid #ccc !important;
+                        margin-top:-4%;
+                         aspect-ratio:1;
+                    }
+                }
+            }
+        }
+
     }
 }
